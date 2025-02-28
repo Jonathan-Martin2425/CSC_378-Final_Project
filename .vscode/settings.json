@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "One Man Tower.sln"
+    "dotnet.defaultSolution": "CSC_378-Final_Project.sln"
 }
