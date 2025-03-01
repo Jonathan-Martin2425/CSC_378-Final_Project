@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
+// using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
     // Gun prefab will be parented to weaponMount on instantiation
     public Transform weaponMount;
+    public Gun currentWeapon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,5 +23,10 @@ public class PlayerController : MonoBehaviour
 
         // Add 180 to angle because rotation is opposite otherwise... for some reason
         transform.rotation = Quaternion.Euler(0, 0, angle + 180);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            currentWeapon.Fire(worldPoint2D);
+        }
     }
 }
