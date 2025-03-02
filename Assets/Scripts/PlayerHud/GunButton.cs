@@ -3,12 +3,22 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class GunInfo : MonoBehaviour
+public class GunButton : MonoBehaviour
 {
     public Gun gun;
     public String gunName;
     public TextMeshProUGUI gunInfo;
 
+    public void GunSelected()
+    {
+
+    }
+
+    public void GunDeselected()
+    {
+
+    }
+    
     public void GunHover()
     {
         gunInfo.text = "<align=center>" + gunName + "\n" + 
