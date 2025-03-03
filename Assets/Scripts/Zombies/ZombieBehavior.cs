@@ -28,7 +28,7 @@ public class ZombieBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isAttacking)
             return;
