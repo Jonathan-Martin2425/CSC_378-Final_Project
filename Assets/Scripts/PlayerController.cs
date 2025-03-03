@@ -6,10 +6,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // Gun prefab will be parented to weaponMount on instantiation
-    public Transform weaponMount;
-    public Gun[] weapons;
-    public Gun currentWeapon;
     public Vector3 exitPos;
     public Vector3 startPos;
     public float moveSpeed = 5;
@@ -26,51 +22,17 @@ public class PlayerController : MonoBehaviour
     {
         playerPos = GetComponent<Transform>();
         playerRb = GetComponent<Rigidbody2D>();
-
-        for (int i = 1; i < weapons.Length; i++)
-        {
-            weapons[i].gameObject.SetActive(false);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 worldPoint2D = Camera.main.ScreenToWorldPoint(mousePosition);
-        float angle = Mathf.Atan2(worldPoint2D.y, worldPoint2D.x) * Mathf.Rad2Deg;
-
-        // Add 180 to angle because rotation is opposite otherwise... for some reason
-        transform.rotation = Quaternion.Euler(0, 0, angle + 180);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            currentWeapon.Fire(worldPoint2D);
-            Debug.Log("FIRE");
-        }
-        
         // determines if the player reached the last clicked move point
         // and stops their velocity if they did
         float posDiff = (float)Math.Sqrt(Math.Pow(playerPos.position.x - movePos.x, 2) + Math.Pow(playerPos.position.y - movePos.y, 2));
         if(posDiff <= movePosThreshold){
             playerRb.linearVelocity = Vector2.zero;
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SwitchGun(0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SwitchGun(1);
-        }
-    }
-
-    void SwitchGun(int gunID)
-    {
-        weapons[currentWeapon.id].gameObject.SetActive(false);
-        weapons[gunID].gameObject.SetActive(true);
-        currentWeapon = weapons[gunID];
     }
 
     // WASD controls
