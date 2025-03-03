@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public int id;
     // Fire rate in bullets per second
     public float fireRate = 1f;
     public float bulletSpeed = 10f;
@@ -27,8 +28,18 @@ public class Gun : MonoBehaviour
         
     }
 
+    void OnEnable()
+    {
+        onCooldown = false;
+        if (currentAmmo == 0)
+        {
+            Reload();
+        }
+    }
+
     public void Fire(Vector2 direction)
     {
+        Debug.Log($"{onCooldown}");
         if (onCooldown == false && currentAmmo != 0)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

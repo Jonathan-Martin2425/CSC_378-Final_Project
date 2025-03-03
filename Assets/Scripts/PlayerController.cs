@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     // Gun prefab will be parented to weaponMount on instantiation
     public Transform weaponMount;
+    public Gun[] weapons;
     public Gun currentWeapon;
     public Vector3 exitPos;
     public Vector3 startPos;
@@ -25,6 +26,11 @@ public class PlayerController : MonoBehaviour
     {
         playerPos = GetComponent<Transform>();
         playerRb = GetComponent<Rigidbody2D>();
+
+        for (int i = 1; i < weapons.Length; i++)
+        {
+            weapons[i].gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -40,6 +46,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             currentWeapon.Fire(worldPoint2D);
+            Debug.Log("FIRE");
         }
         
         // determines if the player reached the last clicked move point
@@ -48,6 +55,22 @@ public class PlayerController : MonoBehaviour
         if(posDiff <= movePosThreshold){
             playerRb.linearVelocity = Vector2.zero;
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwitchGun(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchGun(1);
+        }
+    }
+
+    void SwitchGun(int gunID)
+    {
+        weapons[currentWeapon.id].gameObject.SetActive(false);
+        weapons[gunID].gameObject.SetActive(true);
+        currentWeapon = weapons[gunID];
     }
 
     // WASD controls
