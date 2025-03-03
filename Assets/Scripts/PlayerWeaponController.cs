@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerWeaponController : MonoBehaviour
 {
@@ -7,9 +9,18 @@ public class PlayerWeaponController : MonoBehaviour
     public Transform weaponMount;
     public Gun[] weapons;
     public Gun currentWeapon;
+
+    [Header("Gun Buttons")]
+    public GameObject[] weaponButtons;
+    public Color selectedColor = new Color(231, 210, 34);
+    private Color defaultButtonColor;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        defaultButtonColor = weaponButtons[0].GetComponent<Image>().color;
+        weaponButtons[0].GetComponent<Image>().color = selectedColor;
+        
         for (int i = 1; i < weapons.Length; i++)
         {
             weapons[i].gameObject.SetActive(false);
@@ -31,7 +42,6 @@ public class PlayerWeaponController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             currentWeapon.Fire(worldPoint2D);
-            Debug.Log("FIRE");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -45,10 +55,22 @@ public class PlayerWeaponController : MonoBehaviour
 
     }
 
-    void SwitchGun(int gunID)
+    public void SwitchGun(int gunID)
     {
-        weapons[currentWeapon.id].gameObject.SetActive(false);
-        weapons[gunID].gameObject.SetActive(true);
-        currentWeapon = weapons[gunID];
+        Debug.Log($"{gunID}");
+        Debug.Log($"{currentWeapon.id}");
+        if (gunID != currentWeapon.id)
+        {
+            weapons[currentWeapon.id].gameObject.SetActive(false);
+            weapons[gunID].gameObject.SetActive(true);
+            HighlightButton(gunID);
+            currentWeapon = weapons[gunID];
+        }
+    }
+
+    void HighlightButton(int id)
+    {
+        weaponButtons[id].GetComponent<Image>().color = selectedColor;
+        weaponButtons[currentWeapon.id].GetComponent<Image>().color = defaultButtonColor;
     }
 }

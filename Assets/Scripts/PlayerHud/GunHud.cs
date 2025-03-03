@@ -1,7 +1,9 @@
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class GunHud : MonoBehaviour
 {
+    public static int gunID;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

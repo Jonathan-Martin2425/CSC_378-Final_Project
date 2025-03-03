@@ -5,13 +5,14 @@ using System;
 
 public class GunButton : MonoBehaviour
 {
+    public GameObject player;
     public Gun gun;
     public String gunName;
     public TextMeshProUGUI gunInfo;
 
     public void GunSelected()
     {
-
+        player.GetComponent<PlayerWeaponController>().SwitchGun(gun.id);
     }
 
     public void GunDeselected()

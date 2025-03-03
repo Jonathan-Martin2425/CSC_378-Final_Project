@@ -39,7 +39,6 @@ public class Gun : MonoBehaviour
 
     public void Fire(Vector2 direction)
     {
-        Debug.Log($"{onCooldown}");
         if (onCooldown == false && currentAmmo != 0)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
