@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9065997787967446989}
   - component: {fileID: 6210820162015045980}
   - component: {fileID: 2084987602535941702}
+  - component: {fileID: 5965586851825470140}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1756490019
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0.08503608, b: 0.7660377, a: 1}
@@ -167,6 +168,42 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!58 &5965586851825470140
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824777238965424877}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &8510759021715527502
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +293,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4061369981400198304, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619170656790475313, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619170656790475313, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1834787249
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -274,6 +323,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6774392938629287849}
     m_Modifications:
+    - target: {fileID: 5102864003606181242, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102864003606181242, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1834787249
+      objectReference: {fileID: 0}
     - target: {fileID: 7472253634219748346, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
       propertyPath: m_Name
       value: SniperRifle
@@ -281,6 +338,10 @@ PrefabInstance:
     - target: {fileID: 7472253634219748346, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7472253634219748346, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8283427273188583579, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
       propertyPath: m_LocalPosition.x

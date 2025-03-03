@@ -45,11 +45,23 @@ TagManager:
   - name: Background
     uniqueID: 1823200829
     locked: 0
+  - name: Zombie
+    uniqueID: 1493388319
+    locked: 0
   - name: Tower
     uniqueID: 2575906487
     locked: 0
   - name: Player
     uniqueID: 1756490019
+    locked: 0
+  - name: PlayerBullet
+    uniqueID: 2192949357
+    locked: 0
+  - name: PlayerGun
+    uniqueID: 1834787249
+    locked: 0
+  - name: UI
+    uniqueID: 2556545801
     locked: 0
   m_RenderingLayers:
   - Default
