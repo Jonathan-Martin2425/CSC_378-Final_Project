@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -9,18 +10,20 @@ public class PlayerWeaponController : MonoBehaviour
     public Transform weaponMount;
     public Gun[] weapons;
     public Gun currentWeapon;
+    public float swapTimer = 1f;
 
-    [Header("Gun Buttons")]
-    public GameObject[] weaponButtons;
+    [Header("Gun UI")]
+    public GameObject[] weaponSlots;
     public Color selectedColor = new Color(231, 210, 34);
-    private Color defaultButtonColor;
     public HudStats hudStats;
+    private Color defaultButtonColor;
+    private bool canSwapWeapon = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        defaultButtonColor = weaponButtons[0].GetComponent<Image>().color;
-        weaponButtons[0].GetComponent<Image>().color = selectedColor;
+        defaultButtonColor = weaponSlots[0].GetComponent<Image>().color;
+        weaponSlots[0].GetComponent<Image>().color = selectedColor;
         
         for (int i = 1; i < weapons.Length; i++)
         {
@@ -59,18 +62,26 @@ public class PlayerWeaponController : MonoBehaviour
 
     public void SwitchGun(int gunID)
     {
-        if (gunID != currentWeapon.id)
+        if (gunID != currentWeapon.id && canSwapWeapon == true)
         {
             weapons[currentWeapon.id].gameObject.SetActive(false);
             weapons[gunID].gameObject.SetActive(true);
             HighlightButton(gunID);
             currentWeapon = weapons[gunID];
+            StartCoroutine(SwapCooldown(swapTimer));
         }
+    }
+
+    IEnumerator SwapCooldown(float seconds)
+    {
+        canSwapWeapon = false;
+        yield return new WaitForSeconds(seconds);
+        canSwapWeapon = true;
     }
 
     void HighlightButton(int id)
     {
-        weaponButtons[id].GetComponent<Image>().color = selectedColor;
-        weaponButtons[currentWeapon.id].GetComponent<Image>().color = defaultButtonColor;
+        weaponSlots[id].GetComponent<Image>().color = selectedColor;
+        weaponSlots[currentWeapon.id].GetComponent<Image>().color = defaultButtonColor;
     }
 }

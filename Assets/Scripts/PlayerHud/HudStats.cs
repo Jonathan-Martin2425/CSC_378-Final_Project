@@ -22,6 +22,5 @@ public class HudStats : MonoBehaviour
     {
         Gun currentWeapon = player.GetComponent<PlayerWeaponController>().currentWeapon;
         ammoText.text = "Ammo: " + currentWeapon.currentAmmo + "/" + currentWeapon.magSize;
-        // ammoText.text = "Ammo: " + currentAmmo + "/" + maxAmmo;
     }
 }
