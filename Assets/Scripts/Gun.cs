@@ -33,6 +33,8 @@ public class Gun : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            
+            bullet.GetComponent<DestroyBullet>().SetDamage(bulletDamage);
 
             if (rb != null)
             {
