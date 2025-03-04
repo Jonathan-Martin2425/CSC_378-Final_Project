@@ -12,6 +12,7 @@ public class ZombieBehavior : MonoBehaviour
     [SerializeField] float attackLength = 0.3f;
     [SerializeField] float attackDelay = 1f;
     [SerializeField] float movementSpeed = 1f;
+    [SerializeField] float health = 3f;
 
     bool isAttacking = false;
     float distance = 0f;
@@ -21,7 +22,7 @@ public class ZombieBehavior : MonoBehaviour
     void Start()
     {
         if (target == null)
-            target = GameObject.FindWithTag("Player").transform;
+            target = GameObject.FindWithTag("Tower").transform;
         
         attackCollider = gameObject.GetComponent<BoxCollider2D>();
         attackCollider.enabled = false;
@@ -68,5 +69,14 @@ public class ZombieBehavior : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
         transform.position = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.fixedDeltaTime);
+    }
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (health < 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }

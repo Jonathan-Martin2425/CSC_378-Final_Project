@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Transform playerPos;
     private Rigidbody2D playerRb;
     private Vector2 movePos = new Vector2(20, 20);
+    public GameObject tower;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,13 +26,14 @@ public class PlayerController : MonoBehaviour
     {
         playerPos = GetComponent<Transform>();
         playerRb = GetComponent<Rigidbody2D>();
+        // tower.GetComponent<CircleCollider2D>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 worldPoint2D = Camera.main.ScreenToWorldPoint(mousePosition);
+        Vector2 worldPoint2D = Camera.main.ScreenToWorldPoint(mousePosition) - transform.position;
         float angle = Mathf.Atan2(worldPoint2D.y, worldPoint2D.x) * Mathf.Rad2Deg;
 
         // Add 180 to angle because rotation is opposite otherwise... for some reason
@@ -65,9 +67,14 @@ public class PlayerController : MonoBehaviour
 
     //using spacebar/jump button to move in and out of tower
     void OnJump(){
-        if (inTower){
+        if (inTower)
+        {
+            // tower.GetComponent<CircleCollider2D>().enabled = true;
             playerPos.position = exitPos;
-        }else{
+        }
+        else
+        {
+            // tower.GetComponent<CircleCollider2D>().enabled = false;
             playerPos.position = startPos;
         }
         inTower = !inTower;
