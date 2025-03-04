@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ammo
   m_EditorClassIdentifier: 
   name: Ammo
-  dropChance: 20
+  dropChance: 100
   dropCount: 10
   sprite: {fileID: 3921441551649640537, guid: 5bc837dc01d0b6042b3f574e43ddf47d, type: 3}

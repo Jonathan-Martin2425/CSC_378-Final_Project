@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class DropBehavior : MonoBehaviour
 {
-    public Transform player;
-    public int dropCount;
     public float magnetRange = 5f;
-    public float speed = 10f;
-    float playerDistance;
+    public float speed = 1f;
+    public float dropForce = 300f;
+    Transform player;
     Rigidbody2D rb;
+    float playerDistance;
+    int dropCount;
 
     void Update()
     {
@@ -28,12 +29,17 @@ public class DropBehavior : MonoBehaviour
     {
         dropCount = drop.dropCount;
         GetComponent<SpriteRenderer>().sprite = drop.sprite;
+
+        Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        rb.AddForce(dropDirection * dropForce, ForceMode2D.Impulse);
     }
     
-    void OnTrigger2DEnter(GameObject other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log("Player picked up a drop");
+        if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Drop Destroyed");
             // add to inventory here
             Destroy(gameObject);
         }
