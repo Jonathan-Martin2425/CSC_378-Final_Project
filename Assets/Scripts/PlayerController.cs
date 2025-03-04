@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Transform playerPos;
     private Rigidbody2D playerRb;
     private Vector2 movePos = new Vector2(20, 20);
+    public GameObject tower;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         playerPos = GetComponent<Transform>();
         playerRb = GetComponent<Rigidbody2D>();
+        tower.layer = 6;
     }
 
     // Update is called once per frame
@@ -49,10 +51,16 @@ public class PlayerController : MonoBehaviour
     }
 
     //using spacebar/jump button to move in and out of tower
-    void OnJump(){
-        if (inTower){
+    void OnJump()
+    {
+        if (inTower)
+        {
+            tower.layer = 0;
             playerPos.position = exitPos;
-        }else{
+        }
+        else
+        {
+            tower.layer = 6;
             playerPos.position = startPos;
         }
         inTower = !inTower;
