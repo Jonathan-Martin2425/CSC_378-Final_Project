@@ -74,7 +74,7 @@ public class ZombieBehavior : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        if (health < 1)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
