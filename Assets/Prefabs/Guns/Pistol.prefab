@@ -164,10 +164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b757b2dd4b9cc4cbf343a3f999850e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  gunName: Pistol
   fireRate: 2
   bulletSpeed: 10
   bulletDamage: 1
   magSize: 15
+  currentAmmo: 0
   reloadTimeSeconds: 1
   firePoint: {fileID: 721640360032397726}
   bulletPrefab: {fileID: 3746611728287703164, guid: 07d06d472bd6bc14080d16281d891158, type: 3}

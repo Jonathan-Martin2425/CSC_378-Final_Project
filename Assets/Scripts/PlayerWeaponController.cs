@@ -14,6 +14,7 @@ public class PlayerWeaponController : MonoBehaviour
     public GameObject[] weaponButtons;
     public Color selectedColor = new Color(231, 210, 34);
     private Color defaultButtonColor;
+    public HudStats hudStats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,13 +53,12 @@ public class PlayerWeaponController : MonoBehaviour
         {
             SwitchGun(1);
         }
-
+        
+        hudStats.UpdateAmmo();
     }
 
     public void SwitchGun(int gunID)
     {
-        Debug.Log($"{gunID}");
-        Debug.Log($"{currentWeapon.id}");
         if (gunID != currentWeapon.id)
         {
             weapons[currentWeapon.id].gameObject.SetActive(false);

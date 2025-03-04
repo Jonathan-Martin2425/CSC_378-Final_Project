@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public int id;
+    public string gunName;
     // Fire rate in bullets per second
     public float fireRate = 1f;
     public float bulletSpeed = 10f;
@@ -55,7 +56,6 @@ public class Gun : MonoBehaviour
             {
                 Reload();
             }
-            
             StartCoroutine(FireCooldown(1 / fireRate));
         }
     }

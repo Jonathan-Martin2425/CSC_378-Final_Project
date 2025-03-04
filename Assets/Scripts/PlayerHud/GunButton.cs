@@ -7,7 +7,6 @@ public class GunButton : MonoBehaviour
 {
     public GameObject player;
     public Gun gun;
-    public String gunName;
     public TextMeshProUGUI gunInfo;
 
     public void GunSelected()
@@ -22,7 +21,7 @@ public class GunButton : MonoBehaviour
     
     public void GunHover()
     {
-        gunInfo.text = "<align=center>" + gunName + "\n" + 
+        gunInfo.text = "<align=center>" + gun.gunName + "\n" + 
         "<align=left>" + " Damage: " + gun.bulletDamage + "\n" + 
         " Rate of Fire: " + gun.fireRate + "\n" + 
         " Reload Speed: " + gun.reloadTimeSeconds + "\n" + 
