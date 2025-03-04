@@ -13,6 +13,7 @@ public class ZombieBehavior : MonoBehaviour
     [SerializeField] float attackDelay = 1f;
     [SerializeField] float movementSpeed = 1f;
     [SerializeField] float health = 3f;
+    private SpriteRenderer spriteRenderer;
 
     bool isAttacking = false;
     float distance = 0f;
@@ -26,6 +27,7 @@ public class ZombieBehavior : MonoBehaviour
         
         attackCollider = gameObject.GetComponent<BoxCollider2D>();
         attackCollider.enabled = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -73,10 +75,21 @@ public class ZombieBehavior : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        StartCoroutine(Flash(0.1f));
         health -= amount;
         if (health <= 0)
         {
             Destroy(gameObject);
+            // !!!! Increment score here !!!!
         }
+    }
+
+    IEnumerator Flash(float seconds)
+    {
+        Color orignalColor = spriteRenderer.color;
+
+        spriteRenderer.color = Color.Lerp(orignalColor, Color.red, 0.5f);
+        yield return new WaitForSeconds(seconds);
+        spriteRenderer.color = orignalColor;
     }
 }

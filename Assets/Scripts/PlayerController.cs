@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         playerPos = GetComponent<Transform>();
         playerRb = GetComponent<Rigidbody2D>();
-        // tower.GetComponent<CircleCollider2D>().enabled = false;
+        tower.layer = 6;
     }
 
     // Update is called once per frame
@@ -66,15 +66,16 @@ public class PlayerController : MonoBehaviour
     }
 
     //using spacebar/jump button to move in and out of tower
-    void OnJump(){
+    void OnJump()
+    {
         if (inTower)
         {
-            // tower.GetComponent<CircleCollider2D>().enabled = true;
+            tower.layer = 0;
             playerPos.position = exitPos;
         }
         else
         {
-            // tower.GetComponent<CircleCollider2D>().enabled = false;
+            tower.layer = 6;
             playerPos.position = startPos;
         }
         inTower = !inTower;
