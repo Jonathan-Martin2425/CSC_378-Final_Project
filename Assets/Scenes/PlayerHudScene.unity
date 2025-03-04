@@ -785,7 +785,8 @@ MonoBehaviour:
   - {fileID: 153001553}
   - {fileID: 473477162}
   currentWeapon: {fileID: 0}
-  weaponButtons:
+  swapTimer: 1
+  weaponSlots:
   - {fileID: 901983738}
   - {fileID: 432244648}
   selectedColor: {r: 0.90588236, g: 0.8235294, b: 0.13333334, a: 1}
