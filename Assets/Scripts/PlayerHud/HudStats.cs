@@ -9,20 +9,21 @@ public class HudStats : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI ammoText;
+    public float totalScore = 0;
 
     void UpdateHealth()
     {
 
     }
 
-    void UpdateScore()
+    public void UpdateScore(float addedScore)
     {
-
+        totalScore += addedScore;
+        scoreText.text = "Score: " + totalScore;
     }
 
-    public void UpdateAmmo()
+    public void UpdateAmmo(int currentAmmo, int reservedAmmo)
     {
-        PlayerWeaponController weaponController = player.GetComponent<PlayerWeaponController>();
-        ammoText.text = "Ammo: " + weaponController.currentWeapon.currentAmmo + "/" + weaponController.GetCurrentReservedAmmo();
+        ammoText.text = "Ammo: " + currentAmmo + "/" + reservedAmmo;
     }
 }

@@ -4,8 +4,7 @@ using System.Collections;
 public class ZombieBehavior : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Transform target;
-
+    [SerializeField] Transform target;  
     [Header("Attributes")]
     [SerializeField] float attackRange = 2f;
     [SerializeField] float attackDamage = 10f;
@@ -13,6 +12,7 @@ public class ZombieBehavior : MonoBehaviour
     [SerializeField] float attackDelay = 1f;
     [SerializeField] float movementSpeed = 1f;
     [SerializeField] float health = 3f;
+    [SerializeField] float scoreVal = 10f;
     private SpriteRenderer spriteRenderer;
 
     bool isAttacking = false;
@@ -24,16 +24,15 @@ public class ZombieBehavior : MonoBehaviour
         if (target == null)
             target = GameObject.FindWithTag("Tower").transform;
         
-        attackCollider = gameObject.GetComponent<BoxCollider2D>();
+        attackCollider = GetComponent<BoxCollider2D>();
         attackCollider.enabled = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
     {
-        if (isAttacking)
-            return;
+        if (isAttacking) return;
 
         if (targetInRange())
             Attack();
@@ -43,13 +42,14 @@ public class ZombieBehavior : MonoBehaviour
     
     bool targetInRange()
     {
+        if (target == null) return false;
         distance = Vector3.Distance(transform.position, target.position);
         return distance <= attackRange;
     }
 
     void Attack()
     {
-        Debug.Log("Zombie attacked the player");
+        Debug.Log("Zombie attacked the tower");
         StartCoroutine(AttackRoutine());
     }
 
@@ -60,16 +60,47 @@ public class ZombieBehavior : MonoBehaviour
         yield return new WaitForSeconds(attackLength);
         attackCollider.enabled = false;
         yield return new WaitForSeconds(attackDelay);
+
         isAttacking = false;
     }
 
     void Move()
     {
         Debug.Log("Zombie is moving");
+        if (target == null) return;
         Vector3 direction = target.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        transform.position = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            target.position,
+            movementSpeed * Time.fixedDeltaTime
+        );
+    }
+
+    /*void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Tower") && !isAttacking)
+        {
+            TowerHealth towerHealth = collision.gameObject.GetComponent<TowerHealth>();
+            if (towerHealth != null)
+            {
+                towerHealth.TakeDamage(attackDamage);
+            }
+        }
+    }*/
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Tower") && !isAttacking)
+        {
+            TowerHealth towerHealth = collision.gameObject.GetComponent<TowerHealth>();
+            if (towerHealth != null)
+            {
+                towerHealth.TakeDamage(attackDamage);
+            }
+            Attack();
+        }
     }
 
     public void TakeDamage(float amount)
@@ -85,6 +116,7 @@ public class ZombieBehavior : MonoBehaviour
         GetComponent<DropBag>().DropItem(transform.position);
 
         // Incrememnt Game Score here!!!
+        GameObject.FindWithTag("UI").GetComponent<HudStats>().UpdateScore(scoreVal);
 
         Destroy(gameObject);
     }

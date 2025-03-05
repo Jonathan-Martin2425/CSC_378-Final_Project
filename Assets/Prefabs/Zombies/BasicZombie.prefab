@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5320754, g: 0.171984, b: 0.14355995, a: 1}
+  m_Color: {r: 0.08774296, g: 0.5018867, b: 0.08238515, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -215,11 +215,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   attackRange: 1
-  attackDamage: 10
+  attackDamage: 5
   attackLength: 0.3
   attackDelay: 1
-  movementSpeed: 5
+  movementSpeed: 2
   health: 3
+  scoreVal: 10
 --- !u!114 &4485525990462956517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,5 +235,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 106060861315817462, guid: 351696f7187680b46a6d864a5c897322, type: 3}
   dropList:
-  - {fileID: 11400000, guid: 276ff408aea563d45867e15069e6583f, type: 2}
   - {fileID: 11400000, guid: 6bc7e4015d4091e48944e4c8359164b6, type: 2}
+  - {fileID: 11400000, guid: 276ff408aea563d45867e15069e6583f, type: 2}

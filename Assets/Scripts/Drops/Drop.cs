@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Drop : ScriptableObject
 {
     public string name;
+    public int relativeWeaponId;
     public int dropChance;
     public int dropCount;
     public Sprite sprite;

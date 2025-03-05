@@ -1,57 +1,49 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
+using TMPro;
 
 public class TowerHealth : MonoBehaviour
 {
     [Header("Tower Health Settings")]
-    [SerializeField] private float maxHealth = 10f;
+    [SerializeField] private float maxHealth = 100;
     private float currentHealth;
 
     [Header("UI Elements")]
-    [SerializeField] private Slider healthBar;  
-
-    private bool isDead = false;
+    [SerializeField] private TextMeshProUGUI towerHealthTMP; 
+    
+    [SerializeField] private TextMeshProUGUI scoreTMP; 
 
     private void Start()
     {
-        // Initialize health
         currentHealth = maxHealth;
-
-        // Initialize health bar if assigned
-        if (healthBar != null)
-            healthBar.value = currentHealth / maxHealth;
+        UpdateTowerHealthUI();
     }
 
-    private void Update()
+    public void TakeDamage(float damage)
     {
-        // Change it to decremtn upon collision with zombie prefab
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            TakeDamage(1f);
+        currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth, 0);
+        UpdateTowerHealthUI();
+
+        if (currentHealth <= 0) {
+            if(scoreTMP != null) {
+                string scoreStr = scoreTMP.text;
+                if(scoreStr.StartsWith("Score: ")) {
+                    scoreStr = scoreStr.Substring("Score: ".Length);
+                    }
+                int score;
+                int.TryParse(scoreStr, out score);
+                PlayerPrefs.SetInt("FinalScore", score);
+            }
+        SceneManager.LoadScene("GameOver");
         }
     }
 
-    public void TakeDamage(float amount)
+    private void UpdateTowerHealthUI()
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Max(currentHealth, 0f);
-
-        if (healthBar != null)
-            healthBar.value = currentHealth / maxHealth;
-
-        if (currentHealth <= 0f && !isDead)
+        if (towerHealthTMP != null)
         {
-            isDead = true;
-            StartCoroutine(DelayedSceneReload(1.5f));
+            towerHealthTMP.text = "Health: " + currentHealth;
         }
-    }
-
-    private IEnumerator DelayedSceneReload(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

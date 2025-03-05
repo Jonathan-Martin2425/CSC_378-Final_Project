@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6210820162015045980}
   - component: {fileID: 2084987602535941702}
   - component: {fileID: 5965586851825470140}
+  - component: {fileID: 1891223258268923589}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -131,14 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ecf2cc5f9e8bc479178802d42915e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponMount: {fileID: 6774392938629287849}
-  currentWeapon: {fileID: 5321069969871227170}
   exitPos: {x: -2, y: 0, z: 0}
   startPos: {x: 0, y: 0, z: 0}
   moveSpeed: 2.5
   movePosThreshold: 0.1
-  isWASD: 0
-  tower: {fileID: 147604143488716429, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
+  enterDis: 1
+  tower: {fileID: 0}
 --- !u!114 &2084987602535941702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +175,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3824777238965424877}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -199,12 +198,35 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &1891223258268923589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824777238965424877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18c12d775282437fa7106eb4ee06bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponMount: {fileID: 6774392938629287849}
+  weapons:
+  - {fileID: 3478397076782405813}
+  - {fileID: 5321069969871227170}
+  currentWeapon: {fileID: 3478397076782405813}
+  swapTimer: 1
+  weaponSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  selectedColor: {r: 0.93207544, g: 0.8311501, b: 0, a: 1}
+  hudStats: {fileID: 0}
 --- !u!1 &8510759021715527502
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5619170656790475313, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5619170656790475313, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
       propertyPath: m_SortingLayerID
@@ -316,6 +338,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1720415387028916988, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
   m_PrefabInstance: {fileID: 444824187041953407}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3478397076782405813 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3920922835697823434, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
+  m_PrefabInstance: {fileID: 444824187041953407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b757b2dd4b9cc4cbf343a3f999850e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1518826500631065839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -326,7 +359,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5102864003606181242, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5102864003606181242, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
       propertyPath: m_SortingLayerID

@@ -10,10 +10,11 @@ public class PlayerController : MonoBehaviour
     public Vector3 startPos;
     public float moveSpeed = 5;
     public float movePosThreshold = 0.2f;
-    public bool isWASD = false;
+    public float enterDis = 1f;
     private bool inTower = true;
     private Transform playerPos;
     private Rigidbody2D playerRb;
+    private CircleCollider2D playerCollider;
     private Vector2 movePos = new Vector2(20, 20);
     public GameObject tower;
     
@@ -23,24 +24,22 @@ public class PlayerController : MonoBehaviour
     {
         playerPos = GetComponent<Transform>();
         playerRb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<CircleCollider2D>();
         tower.layer = 6;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // determines if the player reached the last clicked move point
+    // old code for click move behavior
+        /* // determines if the player reached the last clicked move point
         // and stops their velocity if they did
         float posDiff = (float)Math.Sqrt(Math.Pow(playerPos.position.x - movePos.x, 2) + Math.Pow(playerPos.position.y - movePos.y, 2));
         if(posDiff <= movePosThreshold){
             playerRb.linearVelocity = Vector2.zero;
-        }
-    }
+        }*/
 
     // WASD controls
     void FixedUpdate()
     {
-        if(isWASD && !inTower){ 
+        if(!inTower){ 
             float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
 
@@ -53,20 +52,26 @@ public class PlayerController : MonoBehaviour
     //using spacebar/jump button to move in and out of tower
     void OnJump()
     {
-        if (inTower)
-        {
-            tower.layer = 0;
-            playerPos.position = exitPos;
+        float distanceFromTower = (float)Math.Sqrt(Math.Pow(startPos.x - transform.position.x, 2) + 
+                                                   Math.Pow(startPos.y - transform.position.y, 2));
+        Debug.Log(distanceFromTower);
+        if(distanceFromTower <= enterDis + 1.5f){
+            if (inTower){
+                tower.layer = 0;
+                playerPos.position = exitPos;
+            }else{
+                tower.layer = 6;
+                playerPos.position = startPos;
+                playerRb.linearVelocity = Vector2.zero;
+            }
+            inTower = !inTower;
+            playerCollider.isTrigger = !playerCollider.isTrigger;
         }
-        else
-        {
-            tower.layer = 6;
-            playerPos.position = startPos;
-        }
-        inTower = !inTower;
+        
     }
 
-    //uses right mouse click to point to where the player is moving
+    // old code for click move behavior
+    /*//uses right mouse click to point to where the player is moving
     void OnMoveClick(){
         if(!inTower && !isWASD){
             Vector2 mouseWorldPosition =  Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -75,5 +80,5 @@ public class PlayerController : MonoBehaviour
             playerRb.linearVelocity = playerDir.normalized * moveSpeed;
             movePos = mouseWorldPosition;
         }
-    }
+    }*/
 }

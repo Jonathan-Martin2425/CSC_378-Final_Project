@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SniperAmmo
   m_EditorClassIdentifier: 
   name: SniperAmmo
+  relativeWeaponId: 1
   dropChance: 10
   dropCount: 10
   sprite: {fileID: -4009324061942991542, guid: a869f920cfc94e846b1cdf5e2833e092, type: 3}

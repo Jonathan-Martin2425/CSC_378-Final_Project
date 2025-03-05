@@ -40,9 +40,10 @@ public class PlayerWeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 worldPoint2D = Camera.main.ScreenToWorldPoint(mousePosition);
-
+        
+       Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector2 worldPoint2D = mousePosition-transform.position;
+        worldPoint2D.Normalize();
         float angle = Mathf.Atan2(worldPoint2D.y, worldPoint2D.x) * Mathf.Rad2Deg;
 
         // Add 180 to angle because rotation is opposite otherwise... for some reason
@@ -62,7 +63,7 @@ public class PlayerWeaponController : MonoBehaviour
             SwitchGun(1);
         }
         
-        hudStats.UpdateAmmo();
+        hudStats.UpdateAmmo(currentWeapon.currentAmmo, GetCurrentReservedAmmo());
     }
 
     public void SwitchGun(int gunID)
@@ -90,15 +91,15 @@ public class PlayerWeaponController : MonoBehaviour
         weaponSlots[currentWeapon.id].GetComponent<Image>().color = defaultButtonColor;
     }
 
-    public void AddAmmo(int count)
+    public void AddAmmo(int count, int id)
     {
-        if (currentWeapon.id == 0)
+        if (id == 0)
         {
             reservedPistolAmmo += count;
             if (reservedPistolAmmo > maxPistolAmmo)
                 reservedPistolAmmo = maxPistolAmmo;
         }
-        else if (currentWeapon.id == 1)
+        else if (id == 1)
         {
             reservedSniperAmmo += count;
             if (reservedSniperAmmo > maxRifleAmmo)
