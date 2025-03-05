@@ -235,4 +235,4 @@ MonoBehaviour:
   dropPrefab: {fileID: 106060861315817462, guid: 351696f7187680b46a6d864a5c897322, type: 3}
   dropList:
   - {fileID: 11400000, guid: 276ff408aea563d45867e15069e6583f, type: 2}
-  dropForce: 200
+  - {fileID: 11400000, guid: 6bc7e4015d4091e48944e4c8359164b6, type: 2}

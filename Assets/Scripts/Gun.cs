@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    [Header("References")]
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public PlayerWeaponController weaponController;
+    
+
+    [Header("Gun Settings")]
     public int id;
     public string gunName;
     // Fire rate in bullets per second
     public float fireRate = 1f;
     public float bulletSpeed = 10f;
     public float bulletDamage = 1f;
-    public int magSize = 15;
-    public int currentAmmo;
     public float reloadTimeSeconds = 1f;
-    public Transform firePoint;
-    public GameObject bulletPrefab;
-    private bool onCooldown = false;
+    
 
+    [Header("Ammo Settings")]
+    public int magSize = 15;
+    public int currentAmmo = 0;
+
+
+    bool onCooldown = false;
+    
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentAmmo = magSize;
     }
 
     // Update is called once per frame
@@ -31,6 +41,8 @@ public class Gun : MonoBehaviour
 
     void OnEnable()
     {
+        if (!weaponController)
+            weaponController = GetComponent<PlayerWeaponController>();
         onCooldown = false;
         if (currentAmmo == 0)
         {
@@ -76,6 +88,6 @@ public class Gun : MonoBehaviour
     IEnumerator ReloadCooldown(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        currentAmmo = magSize;
+        weaponController.ReloadWeapon();
     }
 }

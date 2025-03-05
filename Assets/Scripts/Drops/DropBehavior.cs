@@ -7,6 +7,7 @@ public class DropBehavior : MonoBehaviour
     public float dropForce = 300f;
     Transform player;
     Rigidbody2D rb;
+    PlayerWeaponController weaponController;
     float playerDistance;
     int dropCount;
 
@@ -21,8 +22,10 @@ public class DropBehavior : MonoBehaviour
     {
         if (!player)
             player = GameObject.FindWithTag("Player").transform;
-
-        rb = GetComponent<Rigidbody2D>();
+        if (!weaponController)
+            weaponController = GameObject.FindWithTag("Player").GetComponent<PlayerWeaponController>();
+        if (!rb)
+            rb = GetComponent<Rigidbody2D>();
     }
 
     public void InstantiateData(Drop drop)
@@ -39,6 +42,7 @@ public class DropBehavior : MonoBehaviour
         Debug.Log("Player picked up a drop");
         if (other.gameObject.CompareTag("Player"))
         {
+            weaponController.AddAmmo(dropCount);
             Debug.Log("Drop Destroyed");
             // add to inventory here
             Destroy(gameObject);

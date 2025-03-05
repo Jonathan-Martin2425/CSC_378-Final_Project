@@ -11,6 +11,11 @@ public class PlayerWeaponController : MonoBehaviour
     public Gun[] weapons;
     public Gun currentWeapon;
     public float swapTimer = 1f;
+    [Header("Ammo Settings")]
+    public int maxPistolAmmo = 999;
+    public int maxRifleAmmo = 999;
+    public int reservedPistolAmmo = 15;
+    public int reservedSniperAmmo = 5;
 
     [Header("Gun UI")]
     public GameObject[] weaponSlots;
@@ -84,4 +89,76 @@ public class PlayerWeaponController : MonoBehaviour
         weaponSlots[id].GetComponent<Image>().color = selectedColor;
         weaponSlots[currentWeapon.id].GetComponent<Image>().color = defaultButtonColor;
     }
+
+    public void AddAmmo(int count)
+    {
+        if (currentWeapon.id == 0)
+        {
+            reservedPistolAmmo += count;
+            if (reservedPistolAmmo > maxPistolAmmo)
+                reservedPistolAmmo = maxPistolAmmo;
+        }
+        else if (currentWeapon.id == 1)
+        {
+            reservedSniperAmmo += count;
+            if (reservedSniperAmmo > maxRifleAmmo)
+                reservedSniperAmmo = maxRifleAmmo;
+        }
+    }
+
+    public int GetCurrentReservedAmmo()
+    {
+        if (currentWeapon.id == 0)
+            return reservedPistolAmmo;
+        else if (currentWeapon.id == 1)
+            return reservedSniperAmmo;
+        else
+            Debug.LogError("No weapon selected");
+        return 0;
+    }
+
+    public void ReloadWeapon()
+    {
+        if (currentWeapon.id == 0)
+            ReloadPistol();
+        else if (currentWeapon.id == 1)
+            ReloadSniper();
+    }
+
+    public void ReloadPistol()
+    {
+        if (reservedPistolAmmo > 0)
+        {
+            int ammoNeeded = currentWeapon.magSize - currentWeapon.currentAmmo;
+            if (reservedPistolAmmo >= ammoNeeded)
+            {
+                reservedPistolAmmo -= ammoNeeded;
+                currentWeapon.currentAmmo = currentWeapon.magSize;
+            }
+            else
+            {
+                currentWeapon.currentAmmo += reservedPistolAmmo;
+                reservedPistolAmmo = 0;
+            }
+        }
+    }
+
+    void ReloadSniper()
+    {
+        if (reservedSniperAmmo > 0)
+        {
+            int ammoNeeded = currentWeapon.magSize - currentWeapon.currentAmmo;
+            if (reservedSniperAmmo >= ammoNeeded)
+            {
+                reservedSniperAmmo -= ammoNeeded;
+                currentWeapon.currentAmmo = currentWeapon.magSize;
+            }
+            else
+            {
+                currentWeapon.currentAmmo += reservedSniperAmmo;
+                reservedSniperAmmo = 0;
+            }
+        }
+    }
+
 }
