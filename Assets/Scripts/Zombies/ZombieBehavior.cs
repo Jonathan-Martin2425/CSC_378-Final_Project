@@ -11,6 +11,8 @@ public class ZombieBehavior : MonoBehaviour
     [SerializeField] float attackLength = 0.3f;
     [SerializeField] float attackDelay = 1f;
     [SerializeField] float movementSpeed = 1f;
+    [SerializeField] float health = 3f;
+    private SpriteRenderer spriteRenderer;
 
     bool isAttacking = false;
     float distance = 0f;
@@ -19,14 +21,11 @@ public class ZombieBehavior : MonoBehaviour
     void Start()
     {
         if (target == null)
-        {
-            GameObject towerObj = GameObject.FindWithTag("Tower");
-            if (towerObj != null)
-                target = towerObj.transform;
-        }
+            target = GameObject.FindWithTag("Tower").transform;
         
         attackCollider = GetComponent<BoxCollider2D>();
         attackCollider.enabled = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -88,5 +87,31 @@ public class ZombieBehavior : MonoBehaviour
                 towerHealth.TakeDamage(attackDamage);
             }
         }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        StartCoroutine(Flash(0.1f));
+        health -= amount;
+        if (health <= 0)
+            Die();
+    }
+
+    public void Die()
+    {
+        GetComponent<DropBag>().DropItem(transform.position);
+
+        // Incrememnt Game Score here!!!
+
+        Destroy(gameObject);
+    }
+
+    IEnumerator Flash(float seconds)
+    {
+        Color orignalColor = spriteRenderer.color;
+
+        spriteRenderer.color = Color.Lerp(orignalColor, Color.red, 0.5f);
+        yield return new WaitForSeconds(seconds);
+        spriteRenderer.color = orignalColor;
     }
 }

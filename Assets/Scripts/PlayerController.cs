@@ -6,9 +6,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // Gun prefab will be parented to weaponMount on instantiation
-    public Transform weaponMount;
-    public Gun currentWeapon;
     public Vector3 exitPos;
     public Vector3 startPos;
     public float moveSpeed = 5;
@@ -18,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Transform playerPos;
     private Rigidbody2D playerRb;
     private Vector2 movePos = new Vector2(20, 20);
+    public GameObject tower;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,23 +23,12 @@ public class PlayerController : MonoBehaviour
     {
         playerPos = GetComponent<Transform>();
         playerRb = GetComponent<Rigidbody2D>();
+        tower.layer = 6;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 worldPoint2D = Camera.main.ScreenToWorldPoint(mousePosition);
-        float angle = Mathf.Atan2(worldPoint2D.y, worldPoint2D.x) * Mathf.Rad2Deg;
-
-        // Add 180 to angle because rotation is opposite otherwise... for some reason
-        transform.rotation = Quaternion.Euler(0, 0, angle + 180);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            currentWeapon.Fire(worldPoint2D);
-        }
-        
         // determines if the player reached the last clicked move point
         // and stops their velocity if they did
         float posDiff = (float)Math.Sqrt(Math.Pow(playerPos.position.x - movePos.x, 2) + Math.Pow(playerPos.position.y - movePos.y, 2));
@@ -64,10 +51,16 @@ public class PlayerController : MonoBehaviour
     }
 
     //using spacebar/jump button to move in and out of tower
-    void OnJump(){
-        if (inTower){
+    void OnJump()
+    {
+        if (inTower)
+        {
+            tower.layer = 0;
             playerPos.position = exitPos;
-        }else{
+        }
+        else
+        {
+            tower.layer = 6;
             playerPos.position = startPos;
         }
         inTower = !inTower;
