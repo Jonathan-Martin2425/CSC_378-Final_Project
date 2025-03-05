@@ -215,11 +215,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   attackRange: 1
-  attackDamage: 10
+  attackDamage: 5
   attackLength: 0.3
   attackDelay: 1
-  movementSpeed: 5
+  movementSpeed: 2
   health: 3
+  scoreVal: 10
 --- !u!114 &4485525990462956517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,4 +236,3 @@ MonoBehaviour:
   dropPrefab: {fileID: 106060861315817462, guid: 351696f7187680b46a6d864a5c897322, type: 3}
   dropList:
   - {fileID: 11400000, guid: 276ff408aea563d45867e15069e6583f, type: 2}
-  dropForce: 200

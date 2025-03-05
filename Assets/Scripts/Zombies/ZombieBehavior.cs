@@ -12,6 +12,7 @@ public class ZombieBehavior : MonoBehaviour
     [SerializeField] float attackDelay = 1f;
     [SerializeField] float movementSpeed = 1f;
     [SerializeField] float health = 3f;
+    [SerializeField] float scoreVal = 10f;
     private SpriteRenderer spriteRenderer;
 
     bool isAttacking = false;
@@ -77,15 +78,28 @@ public class ZombieBehavior : MonoBehaviour
         );
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Tower"))
+        if (collision.gameObject.CompareTag("Tower") && !isAttacking)
         {
-            TowerHealth towerHealth = other.GetComponent<TowerHealth>();
+            TowerHealth towerHealth = collision.gameObject.GetComponent<TowerHealth>();
             if (towerHealth != null)
             {
                 towerHealth.TakeDamage(attackDamage);
             }
+        }
+    }*/
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Tower") && !isAttacking)
+        {
+            TowerHealth towerHealth = collision.gameObject.GetComponent<TowerHealth>();
+            if (towerHealth != null)
+            {
+                towerHealth.TakeDamage(attackDamage);
+            }
+            Attack();
         }
     }
 
@@ -102,6 +116,7 @@ public class ZombieBehavior : MonoBehaviour
         GetComponent<DropBag>().DropItem(transform.position);
 
         // Incrememnt Game Score here!!!
+        GameObject.FindWithTag("UI").GetComponent<HudStats>().UpdateScore(scoreVal);
 
         Destroy(gameObject);
     }

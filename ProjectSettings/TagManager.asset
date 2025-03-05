@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tower
   - Zombie
+  - UI
   layers:
   - Default
   - TransparentFX

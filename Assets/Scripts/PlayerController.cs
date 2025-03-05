@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour
     public Vector3 startPos;
     public float moveSpeed = 5;
     public float movePosThreshold = 0.2f;
+    public float enterDis = 1f;
     private bool inTower = true;
     private Transform playerPos;
     private Rigidbody2D playerRb;
+    private CircleCollider2D playerCollider;
     private Vector2 movePos = new Vector2(20, 20);
     public GameObject tower;
     
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         playerPos = GetComponent<Transform>();
         playerRb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<CircleCollider2D>();
         tower.layer = 6;
     }
 
@@ -49,17 +52,22 @@ public class PlayerController : MonoBehaviour
     //using spacebar/jump button to move in and out of tower
     void OnJump()
     {
-        if (inTower)
-        {
-            tower.layer = 0;
-            playerPos.position = exitPos;
+        float distanceFromTower = (float)Math.Sqrt(Math.Pow(startPos.x - transform.position.x, 2) + 
+                                                   Math.Pow(startPos.y - transform.position.y, 2));
+        Debug.Log(distanceFromTower);
+        if(distanceFromTower <= enterDis + 1.5f){
+            if (inTower){
+                tower.layer = 0;
+                playerPos.position = exitPos;
+            }else{
+                tower.layer = 6;
+                playerPos.position = startPos;
+                playerRb.linearVelocity = Vector2.zero;
+            }
+            inTower = !inTower;
+            playerCollider.isTrigger = !playerCollider.isTrigger;
         }
-        else
-        {
-            tower.layer = 6;
-            playerPos.position = startPos;
-        }
-        inTower = !inTower;
+        
     }
 
     // old code for click move behavior
