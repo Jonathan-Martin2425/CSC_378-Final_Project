@@ -101,8 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321c84395360e45ed87129183c2c30b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  healthBar: {fileID: 0}
+  maxHealth: 250
+  towerHealthTMP: {fileID: 0}
+  scoreTMP: {fileID: 0}
 --- !u!58 &8992747354281593794
 CircleCollider2D:
   m_ObjectHideFlags: 0
