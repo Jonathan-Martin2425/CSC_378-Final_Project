@@ -6,9 +6,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // Gun prefab will be parented to weaponMount on instantiation
-    public Transform weaponMount;
-    public Gun currentWeapon;
     public Vector3 exitPos;
     public Vector3 startPos;
     public float moveSpeed = 5;
@@ -38,15 +35,10 @@ public class PlayerController : MonoBehaviour
 
         // Add 180 to angle because rotation is opposite otherwise... for some reason
         transform.rotation = Quaternion.Euler(0, 0, angle + 180);
-
-        if (Input.GetMouseButtonDown(0) && inTower)
-        {
-            currentWeapon.Fire(worldPoint2D);
-        }
         
 
         // old code for click move behavior
-        /*// determines if the player reached the last clicked move point
+        /* // determines if the player reached the last clicked move point
         // and stops their velocity if they did
         float posDiff = (float)Math.Sqrt(Math.Pow(playerPos.position.x - movePos.x, 2) + Math.Pow(playerPos.position.y - movePos.y, 2));
         if(posDiff <= movePosThreshold){

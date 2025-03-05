@@ -5,13 +5,13 @@ using System;
 
 public class GunButton : MonoBehaviour
 {
+    public GameObject player;
     public Gun gun;
-    public String gunName;
     public TextMeshProUGUI gunInfo;
 
     public void GunSelected()
     {
-
+        player.GetComponent<PlayerWeaponController>().SwitchGun(gun.id);
     }
 
     public void GunDeselected()
@@ -21,7 +21,7 @@ public class GunButton : MonoBehaviour
     
     public void GunHover()
     {
-        gunInfo.text = "<align=center>" + gunName + "\n" + 
+        gunInfo.text = "<align=center>" + gun.gunName + "\n" + 
         "<align=left>" + " Damage: " + gun.bulletDamage + "\n" + 
         " Rate of Fire: " + gun.fireRate + "\n" + 
         " Reload Speed: " + gun.reloadTimeSeconds + "\n" + 
