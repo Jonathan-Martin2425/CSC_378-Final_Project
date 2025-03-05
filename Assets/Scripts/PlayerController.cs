@@ -25,26 +25,13 @@ public class PlayerController : MonoBehaviour
         tower.layer = 6;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Vector2 worldPoint2D = mousePosition-transform.position;
-        worldPoint2D.Normalize();
-        float angle = Mathf.Atan2(worldPoint2D.y, worldPoint2D.x) * Mathf.Rad2Deg;
-
-        // Add 180 to angle because rotation is opposite otherwise... for some reason
-        transform.rotation = Quaternion.Euler(0, 0, angle + 180);
-        
-
-        // old code for click move behavior
+    // old code for click move behavior
         /* // determines if the player reached the last clicked move point
         // and stops their velocity if they did
         float posDiff = (float)Math.Sqrt(Math.Pow(playerPos.position.x - movePos.x, 2) + Math.Pow(playerPos.position.y - movePos.y, 2));
         if(posDiff <= movePosThreshold){
             playerRb.linearVelocity = Vector2.zero;
         }*/
-    }
 
     // WASD controls
     void FixedUpdate()

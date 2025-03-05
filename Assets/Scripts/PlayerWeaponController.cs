@@ -35,9 +35,10 @@ public class PlayerWeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 worldPoint2D = Camera.main.ScreenToWorldPoint(mousePosition);
-
+        
+       Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector2 worldPoint2D = mousePosition-transform.position;
+        worldPoint2D.Normalize();
         float angle = Mathf.Atan2(worldPoint2D.y, worldPoint2D.x) * Mathf.Rad2Deg;
 
         // Add 180 to angle because rotation is opposite otherwise... for some reason

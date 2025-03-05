@@ -55,6 +55,9 @@ TagManager:
   - name: Player
     uniqueID: 1756490019
     locked: 0
+  - name: Drops
+    uniqueID: 3146037861
+    locked: 0
   - name: PlayerBullet
     uniqueID: 2192949357
     locked: 0
