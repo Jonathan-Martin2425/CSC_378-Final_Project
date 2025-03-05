@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public Vector3 startPos;
     public float moveSpeed = 5;
     public float movePosThreshold = 0.2f;
-    public bool isWASD = false;
     private bool inTower = true;
     private Transform playerPos;
     private Rigidbody2D playerRb;
@@ -32,30 +31,33 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 worldPoint2D = Camera.main.ScreenToWorldPoint(mousePosition) - transform.position;
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector2 worldPoint2D = mousePosition-transform.position;
+        worldPoint2D.Normalize();
         float angle = Mathf.Atan2(worldPoint2D.y, worldPoint2D.x) * Mathf.Rad2Deg;
 
         // Add 180 to angle because rotation is opposite otherwise... for some reason
         transform.rotation = Quaternion.Euler(0, 0, angle + 180);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && inTower)
         {
             currentWeapon.Fire(worldPoint2D);
         }
         
-        // determines if the player reached the last clicked move point
+
+        // old code for click move behavior
+        /*// determines if the player reached the last clicked move point
         // and stops their velocity if they did
         float posDiff = (float)Math.Sqrt(Math.Pow(playerPos.position.x - movePos.x, 2) + Math.Pow(playerPos.position.y - movePos.y, 2));
         if(posDiff <= movePosThreshold){
             playerRb.linearVelocity = Vector2.zero;
-        }
+        }*/
     }
 
     // WASD controls
     void FixedUpdate()
     {
-        if(isWASD && !inTower){ 
+        if(!inTower){ 
             float x = Input.GetAxisRaw("Horizontal");
             float y = Input.GetAxisRaw("Vertical");
 
@@ -81,7 +83,8 @@ public class PlayerController : MonoBehaviour
         inTower = !inTower;
     }
 
-    //uses right mouse click to point to where the player is moving
+    // old code for click move behavior
+    /*//uses right mouse click to point to where the player is moving
     void OnMoveClick(){
         if(!inTower && !isWASD){
             Vector2 mouseWorldPosition =  Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -90,5 +93,5 @@ public class PlayerController : MonoBehaviour
             playerRb.linearVelocity = playerDir.normalized * moveSpeed;
             movePos = mouseWorldPosition;
         }
-    }
+    }*/
 }
