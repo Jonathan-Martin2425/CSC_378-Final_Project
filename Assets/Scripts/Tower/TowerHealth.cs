@@ -25,21 +25,17 @@ public class TowerHealth : MonoBehaviour
         currentHealth = Mathf.Max(currentHealth, 0);
         UpdateTowerHealthUI();
 
-        if (currentHealth <= 0)
-        {
-            int score = 0;
-            if(scoreTMP != null)
-            {
+        if (currentHealth <= 0) {
+            if(scoreTMP != null) {
                 string scoreStr = scoreTMP.text;
-                if(scoreStr.StartsWith("Score: "))
-                {
+                if(scoreStr.StartsWith("Score: ")) {
                     scoreStr = scoreStr.Substring("Score: ".Length);
-                }
+                    }
+                int score;
                 int.TryParse(scoreStr, out score);
+                PlayerPrefs.SetInt("FinalScore", score);
             }
-            PlayerPrefs.SetInt("FinalScore", score);
-
-            SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("GameOver");
         }
     }
 

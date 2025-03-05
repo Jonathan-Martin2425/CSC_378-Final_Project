@@ -8,15 +8,13 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText; 
 
     [Header("Settings")]
-    [SerializeField] private string gameSceneName = "TowerCollisionScene"; 
+    [SerializeField] private string gameSceneName = "Main"; 
 
-    void Start()
-    {
-        string finalScoreString = PlayerPrefs.GetString("FinalScoreString", "Score: 0");
-        scoreText.text = finalScoreString;
+    void Start() {
+        int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
+            scoreText.text = "Score: " + finalScore;
     }
 
-    // This method is called by the Retry button OnClick event
     public void OnRetryButtonPressed()
     {
         SceneManager.LoadScene(gameSceneName);
