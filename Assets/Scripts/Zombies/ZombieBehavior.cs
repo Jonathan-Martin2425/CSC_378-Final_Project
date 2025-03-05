@@ -19,7 +19,6 @@ public class ZombieBehavior : MonoBehaviour
     float distance = 0f;
     BoxCollider2D attackCollider;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (target == null)
@@ -78,10 +77,16 @@ public class ZombieBehavior : MonoBehaviour
         StartCoroutine(Flash(0.1f));
         health -= amount;
         if (health <= 0)
-        {
-            Destroy(gameObject);
-            // !!!! Increment score here !!!!
-        }
+            Die();
+    }
+
+    public void Die()
+    {
+        GetComponent<DropBag>().DropItem(transform.position);
+
+        // Incrememnt Game Score here!!!
+
+        Destroy(gameObject);
     }
 
     IEnumerator Flash(float seconds)
