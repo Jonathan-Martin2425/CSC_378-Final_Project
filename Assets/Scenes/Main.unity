@@ -180,12 +180,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3478397076782405813, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: fireRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3478397076782405813, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 670807149}
     - target: {fileID: 3824777238965424877, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: fireRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: weaponController
@@ -679,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 1861252470}
     - target: {fileID: 8196836511509466566, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8196836511509466566, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
       propertyPath: towerHealthTMP
@@ -722,7 +730,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: spawnRate
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3496107128932779586, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: m_Name
