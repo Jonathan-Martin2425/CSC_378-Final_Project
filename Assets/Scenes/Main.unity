@@ -179,10 +179,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3478397076782405813, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 670807149}
     - target: {fileID: 3824777238965424877, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: weaponController
+      value: 
+      objectReference: {fileID: 670807149}
     - target: {fileID: 5965586851825470140, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -342,6 +350,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3824777238965424877, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
   m_PrefabInstance: {fileID: 362076404}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &670807149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+  m_PrefabInstance: {fileID: 362076404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670807148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18c12d775282437fa7106eb4ee06bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1155962949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 147604143488716429, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
@@ -660,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 1861252470}
     - target: {fileID: 8196836511509466566, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8196836511509466566, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
       propertyPath: towerHealthTMP
