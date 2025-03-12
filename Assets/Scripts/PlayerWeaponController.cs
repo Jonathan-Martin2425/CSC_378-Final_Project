@@ -20,7 +20,6 @@ public class PlayerWeaponController : MonoBehaviour
     [Header("Gun UI")]
     public GameObject[] weaponSlots;
     public Color selectedColor = new Color(231, 210, 34);
-    public HudStats hudStats;
     private Color defaultButtonColor;
     private bool canSwapWeapon = true;
 
@@ -63,7 +62,7 @@ public class PlayerWeaponController : MonoBehaviour
             SwitchGun(1);
         }
         
-        hudStats.UpdateAmmo(currentWeapon.currentAmmo, GetCurrentReservedAmmo());
+        GameObject.FindWithTag("UI").GetComponent<HudStats>().UpdateAmmo(currentWeapon.currentAmmo, GetCurrentReservedAmmo());
     }
 
     public void SwitchGun(int gunID)
