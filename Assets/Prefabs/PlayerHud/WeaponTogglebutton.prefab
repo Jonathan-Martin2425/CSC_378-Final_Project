@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 97}
+  m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &9005274406800381270
 CanvasRenderer:
@@ -243,7 +243,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!114 &2332490858673332986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,8 +256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0908ec85b9a4ccfb4c839a4b564704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 0}
-  infoText: {fileID: 0}
 --- !u!114 &6800503274161302936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,10 +273,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2332490858673332986}
-          m_TargetAssemblyTypeName: GunDisplayButton, Assembly-CSharp
-          m_MethodName: ShowInfo
-          m_Mode: 1
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: InfoPanel, Assembly-CSharp
+          m_MethodName: SelectWeapon
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

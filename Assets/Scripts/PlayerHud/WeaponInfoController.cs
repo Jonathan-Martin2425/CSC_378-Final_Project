@@ -6,11 +6,8 @@ using System.Collections.Generic;
 
 public class WeaponInfoController : MonoBehaviour
 {
-    public GameObject mainPanel;
     public GameObject sidebar;
-    public GameObject infoPanel;
-    public TextMeshProUGUI infoText;
-    public List<Gun> weapons;
+    public GameObject infoUpgradePanel;
     // change this back to false after done testing
     private bool isActive = false;
 
@@ -30,13 +27,13 @@ public class WeaponInfoController : MonoBehaviour
         if (isActive)
         {
             sidebar.SetActive(true);
-            infoPanel.SetActive(true);
+            infoUpgradePanel.SetActive(true);
             Time.timeScale = 0f;
         }
         else
         {
             sidebar.SetActive(false);
-            infoPanel.SetActive(false);
+            infoUpgradePanel.SetActive(false);
             Time.timeScale = 1f;
         }
     }
