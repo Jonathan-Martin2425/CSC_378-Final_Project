@@ -12,7 +12,7 @@ public class WeaponInfoController : MonoBehaviour
     public TextMeshProUGUI infoText;
     public List<Gun> weapons;
     // change this back to false after done testing
-    private bool isActive = true;
+    private bool isActive = false;
 
     // Update is called once per frame
     void Update()
