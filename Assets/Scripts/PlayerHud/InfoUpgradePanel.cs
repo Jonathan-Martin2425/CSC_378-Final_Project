@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class InfoPanel : MonoBehaviour
 {
@@ -21,18 +22,29 @@ public class InfoPanel : MonoBehaviour
         " Rate of Fire: " + currentWeapon.fireRate + "\n" + 
         " Reload Speed: " + currentWeapon.reloadTimeSeconds + "\n" + 
         " Magazine Capacity: " + currentWeapon.magSize;
+        // change images here
     }
 
-    void UpgradeWeapon()
+    public void UpgradeWeapon()
     {
         if (currentWeapon.id == 0)
         {
-            Debug.Log("Pistol SELECTED");
+            Debug.Log("UPRADE PISTOL");
         }
         else if (currentWeapon.id == 1)
         {
-            Debug.Log("Sniper SELECTED");
+            Debug.Log("UPRADE SNIPER");
         }
+        else if (currentWeapon.id == 2)
+        {
+            Debug.Log("UPRADE SHOTGUN");
+        }
+        else if (currentWeapon.id == 3)
+        {
+            Debug.Log("UPRADE GRENADE");
+        }
+
+        UpdateInfo();
     }
 
     public void SelectWeapon(int id)
