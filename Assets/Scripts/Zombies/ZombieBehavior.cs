@@ -49,7 +49,6 @@ public class ZombieBehavior : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Zombie attacked the tower");
         StartCoroutine(AttackRoutine());
     }
 
@@ -66,7 +65,6 @@ public class ZombieBehavior : MonoBehaviour
 
     void Move()
     {
-        Debug.Log("Zombie is moving");
         if (target == null) return;
         Vector3 direction = target.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

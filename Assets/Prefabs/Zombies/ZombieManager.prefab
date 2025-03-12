@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 2625531417755594487, guid: e9e9cf46225b18c4d847d8c8b958ccd8, type: 3}
-  spawnRate: 10
-  innerBound: 5
-  outerBound: 10
+  spawnRate: 3
+  innerBound: {x: 20, y: 10}
+  outerBound: {x: 25, y: 20}

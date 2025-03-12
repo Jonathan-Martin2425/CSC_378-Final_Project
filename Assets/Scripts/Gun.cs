@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
     public int currentAmmo = 0;
 
 
-    bool onCooldown = false;
+    protected bool onCooldown = false;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,7 +51,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public void Fire(Vector2 direction)
+    public virtual void Fire(Vector2 direction)
     {
         if (onCooldown == false && currentAmmo != 0)
         {
@@ -64,7 +64,6 @@ public class Gun : MonoBehaviour
             {
                 currentAmmo -= 1;
                 rb.linearVelocity = direction * bulletSpeed;
-                onCooldown = true;
             }
 
             if (currentAmmo == 0)
@@ -72,11 +71,14 @@ public class Gun : MonoBehaviour
                 Reload();
             }
             StartCoroutine(FireCooldown(1 / fireRate));
+        }else{
+            Debug.Log("on fire cooldown");
         }
     }
 
-    IEnumerator FireCooldown(float seconds)
+    protected IEnumerator FireCooldown(float seconds)
     {
+        onCooldown = true;
         yield return new WaitForSeconds(seconds);
         onCooldown = false;
     }
@@ -86,9 +88,21 @@ public class Gun : MonoBehaviour
         StartCoroutine(ReloadCooldown(reloadTimeSeconds));
     }
 
+    public void Reload(int ammoToAdd)
+    {
+        StartCoroutine(ReloadCooldown(reloadTimeSeconds, ammoToAdd));
+    }
+
     IEnumerator ReloadCooldown(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         weaponController.ReloadWeapon();
     }
+
+    IEnumerator ReloadCooldown(float seconds, int ammoToAdd)
+    {
+        yield return new WaitForSeconds(seconds);
+        weaponController.ReloadWeapon(ammoToAdd);
+    }
+
 }

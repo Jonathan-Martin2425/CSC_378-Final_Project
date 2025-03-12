@@ -11,6 +11,7 @@ public class GunButton : MonoBehaviour
 
     public void GunSelected()
     {
+        Debug.Log(gun.name + " swap");
         player.GetComponent<PlayerWeaponController>().SwitchGun(gun.id);
     }
 

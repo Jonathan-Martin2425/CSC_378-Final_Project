@@ -12,11 +12,27 @@ public class DestroyBullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
         if (collision.gameObject.CompareTag("Zombie"))
         {
             collision.gameObject.GetComponent<ZombieBehavior>()
                 .TakeDamage(bulletDamage);
+        }
+
+        if(!collision.gameObject.CompareTag("Bullet")){
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Zombie"))
+        {
+            collision.GetComponent<ZombieBehavior>()
+                .TakeDamage(bulletDamage);
+        }
+
+        if(!collision.CompareTag("Bullet")){
+            Destroy(gameObject);
         }
     }
 
