@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8068542386106083091}
   - component: {fileID: 8840531587230493907}
   - component: {fileID: 1503660030105727333}
-  - component: {fileID: 5608093907819991535}
+  - component: {fileID: 4335096624599039874}
   - component: {fileID: 963588360990554440}
   - component: {fileID: 4485525990462956517}
   m_Layer: 0
@@ -105,8 +105,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1000
-  m_LinearDamping: 10
-  m_AngularDamping: 10
+  m_LinearDamping: 0
+  m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -155,7 +155,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!61 &5608093907819991535
+--- !u!61 &4335096624599039874
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,11 +185,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.5, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.4935023, y: 0.5167258}
@@ -199,7 +199,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &963588360990554440
 MonoBehaviour:
@@ -218,7 +218,8 @@ MonoBehaviour:
   attackDamage: 5
   attackLength: 0.3
   attackDelay: 1
-  movementSpeed: 2
+  movementSpeed: 2.5
+  acceleration: 5
   health: 3
   scoreVal: 10
 --- !u!114 &4485525990462956517
@@ -237,3 +238,4 @@ MonoBehaviour:
   dropList:
   - {fileID: 11400000, guid: 6bc7e4015d4091e48944e4c8359164b6, type: 2}
   - {fileID: 11400000, guid: 276ff408aea563d45867e15069e6583f, type: 2}
+  - {fileID: 11400000, guid: c5de98a2a01edf64db2097b24b3991e2, type: 2}

@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
+using System;
 
 public class PlayerWeaponController : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class PlayerWeaponController : MonoBehaviour
     public int maxRifleAmmo = 999;
     public int reservedPistolAmmo = 15;
     public int reservedSniperAmmo = 5;
+    public int reservedShotgunAmmo = 8;
+
+    private List<int> reservedAmmo = new List<int>();
 
     [Header("Gun UI")]
     public GameObject[] weaponSlots;
@@ -34,13 +39,17 @@ public class PlayerWeaponController : MonoBehaviour
             weapons[i].gameObject.SetActive(false);
         }
         currentWeapon = weapons[0];
+
+        reservedAmmo.Add(reservedPistolAmmo);
+        reservedAmmo.Add(reservedSniperAmmo);
+        reservedAmmo.Add(reservedShotgunAmmo);
     }
 
     // Update is called once per frame
     void Update()
     {
         
-       Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector2 worldPoint2D = mousePosition-transform.position;
         worldPoint2D.Normalize();
         float angle = Mathf.Atan2(worldPoint2D.y, worldPoint2D.x) * Mathf.Rad2Deg;
@@ -60,6 +69,10 @@ public class PlayerWeaponController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SwitchGun(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchGun(2);
         }
         
         GameObject.FindWithTag("UI").GetComponent<HudStats>().UpdateAmmo(currentWeapon.currentAmmo, GetCurrentReservedAmmo());
@@ -92,72 +105,83 @@ public class PlayerWeaponController : MonoBehaviour
 
     public void AddAmmo(int count, int id)
     {
-        if (id == 0)
-        {
-            reservedPistolAmmo += count;
-            if (reservedPistolAmmo > maxPistolAmmo)
-                reservedPistolAmmo = maxPistolAmmo;
+        //used index to determine maxAmmo, a list could also be used for maxAmmo quantites
+        // right now used pistol's max ammo
+         if(id < reservedAmmo.Count)
+         {
+            reservedAmmo[id] += count;
+            if (reservedAmmo[id] > maxPistolAmmo)
+                reservedAmmo[id] = maxPistolAmmo;
         }
-        else if (id == 1)
+        else
         {
-            reservedSniperAmmo += count;
-            if (reservedSniperAmmo > maxRifleAmmo)
-                reservedSniperAmmo = maxRifleAmmo;
+            Debug.LogError("No weapon selected");
         }
     }
 
     public int GetCurrentReservedAmmo()
     {
-        if (currentWeapon.id == 0)
-            return reservedPistolAmmo;
-        else if (currentWeapon.id == 1)
-            return reservedSniperAmmo;
+        //now uses reservedAmmo list, instead of both varriables
+        if(currentWeapon.id < reservedAmmo.Count)
+         {
+            return reservedAmmo[currentWeapon.id];
+        }
         else
+        {
             Debug.LogError("No weapon selected");
+        }
         return 0;
     }
 
     public void ReloadWeapon()
     {
-        if (currentWeapon.id == 0)
-            ReloadPistol();
-        else if (currentWeapon.id == 1)
-            ReloadSniper();
-    }
-
-    public void ReloadPistol()
-    {
-        if (reservedPistolAmmo > 0)
+        //now uses reservedAmmo list, instead of both varriables
+        if (reservedAmmo[currentWeapon.id] > 0)
         {
             int ammoNeeded = currentWeapon.magSize - currentWeapon.currentAmmo;
-            if (reservedPistolAmmo >= ammoNeeded)
+            if (reservedAmmo[currentWeapon.id] >= ammoNeeded)
             {
-                reservedPistolAmmo -= ammoNeeded;
+                reservedAmmo[currentWeapon.id] -= ammoNeeded;
                 currentWeapon.currentAmmo = currentWeapon.magSize;
             }
             else
             {
-                currentWeapon.currentAmmo += reservedPistolAmmo;
-                reservedPistolAmmo = 0;
+                currentWeapon.currentAmmo += reservedAmmo[currentWeapon.id];
+                reservedAmmo[currentWeapon.id] = 0;
             }
         }
     }
 
-    void ReloadSniper()
+    public void ReloadWeapon(int ammoToAdd)
     {
-        if (reservedSniperAmmo > 0)
+        //now uses reservedAmmo list, instead of both varriables
+        if (reservedAmmo[currentWeapon.id] > 0)
         {
-            int ammoNeeded = currentWeapon.magSize - currentWeapon.currentAmmo;
-            if (reservedSniperAmmo >= ammoNeeded)
+            if (reservedAmmo[currentWeapon.id] >= ammoToAdd)
             {
-                reservedSniperAmmo -= ammoNeeded;
-                currentWeapon.currentAmmo = currentWeapon.magSize;
+                currentWeapon.currentAmmo += ammoToAdd;
+                if(currentWeapon.currentAmmo > currentWeapon.magSize){
+                    int ammoAdded = ammoToAdd - (currentWeapon.currentAmmo - currentWeapon.magSize);
+                    currentWeapon.currentAmmo = currentWeapon.magSize;
+                    reservedAmmo[currentWeapon.id] -= ammoAdded;
+                }else{
+                    reservedAmmo[currentWeapon.id] -= ammoToAdd;
+                }
             }
             else
             {
-                currentWeapon.currentAmmo += reservedSniperAmmo;
-                reservedSniperAmmo = 0;
+                currentWeapon.currentAmmo += reservedAmmo[currentWeapon.id];
+                reservedAmmo[currentWeapon.id] = 0;
             }
+        }
+    }
+
+    void OnReload(){
+        if(currentWeapon.GetType().Equals(typeof(Shotgun))){
+            Shotgun gun = (Shotgun)currentWeapon;
+            currentWeapon.Reload(gun.bulletsPerReload);
+        }else{
+            currentWeapon.Reload();
         }
     }
 
