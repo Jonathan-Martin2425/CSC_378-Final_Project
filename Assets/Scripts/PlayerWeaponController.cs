@@ -117,14 +117,12 @@ public class PlayerWeaponController : MonoBehaviour
 
             if (onCooldown)
             {   
-                Debug.Log($"Adding overlay for {weaponSlots[i].name}");
                 GameObject tempOverlay = Instantiate(swapOverlay, weaponSlots[i].transform);
                 tempOverlay.name = "SwapOverlay";
                 tempOverlay.GetComponent<RectTransform>().localScale = weaponSlots[i].GetComponent<RectTransform>().sizeDelta;
             }
             else
             {
-                Debug.Log($"Removing overlay for {weaponSlots[i].name}");
                 Transform toRemove = weaponSlots[i].transform.Find("SwapOverlay");
                 Destroy(toRemove.gameObject);
             }
