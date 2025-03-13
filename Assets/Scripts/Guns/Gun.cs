@@ -30,7 +30,8 @@ public class Gun : MonoBehaviour
 
 
     protected bool onCooldown = false;
-    
+    public Transform ammoIcon;
+    private float rotationSpeed = 360f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -99,14 +100,29 @@ public class Gun : MonoBehaviour
 
     IEnumerator ReloadCooldown(float seconds)
     {
+        Coroutine rotationCoroutine = StartCoroutine(RotateAmmoIcon());
         yield return new WaitForSeconds(seconds);
+        StopCoroutine(rotationCoroutine);
+        ammoIcon.rotation = Quaternion.identity;
         weaponController.ReloadWeapon();
     }
 
     IEnumerator ReloadCooldown(float seconds, int ammoToAdd)
     {
+        Coroutine rotationCoroutine = StartCoroutine(RotateAmmoIcon());
         yield return new WaitForSeconds(seconds);
+        StopCoroutine(rotationCoroutine);
+        ammoIcon.rotation = Quaternion.identity;
         weaponController.ReloadWeapon(ammoToAdd);
+    }
+
+    IEnumerator RotateAmmoIcon()
+    {
+        while(true)
+        {
+            ammoIcon.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+            yield return null;
+        }
     }
 
 }

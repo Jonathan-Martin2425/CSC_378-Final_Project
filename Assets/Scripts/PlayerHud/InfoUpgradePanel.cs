@@ -8,6 +8,7 @@ public class InfoPanel : MonoBehaviour
 {
     public Gun[] weapons;
     public TextMeshProUGUI infoText;
+    public TextMeshProUGUI matsText;
     public Button upgradeButton;
     [SerializeField] private Gun currentWeapon;
     [SerializeField] private PlayerMats mats;
@@ -22,14 +23,14 @@ public class InfoPanel : MonoBehaviour
         UpdateInfo();
     }
 
-    void UpdateInfo()
+    public void UpdateInfo()
     {
         infoText.text =  " Damage: " + currentWeapon.bulletDamage + "\n" + 
         " Rate of Fire: " + currentWeapon.fireRate + "\n" + 
         " Reload Speed: " + currentWeapon.reloadTimeSeconds + "\n" + 
         " Magazine Capacity: " + currentWeapon.magSize;
+        matsText.text = $"Materials Needed: {mats.mats}/{currentWeapon.costsPerLevel[currentWeapon.level]}";
         // change images here
-        
     }
 
     public void UpgradeWeapon()
