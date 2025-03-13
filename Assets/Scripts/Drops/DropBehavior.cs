@@ -41,9 +41,10 @@ public class DropBehavior : MonoBehaviour
         //Debug.Log("Player picked up a drop");
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<PlayerWeaponController>().AddAmmo(dropCount, id);
-            //Debug.Log("Drop Destroyed");
-            // add to inventory here
+            if (id < 0)
+                other.GetComponent<PlayerMats>().AddMats(dropCount);
+            else
+                other.GetComponent<PlayerWeaponController>().AddAmmo(dropCount, id);
             Destroy(gameObject);
         }
     }
