@@ -7,6 +7,7 @@ TagManager:
   - Tower
   - Zombie
   - UI
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -41,11 +42,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 1823200829
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Zombie
     uniqueID: 1493388319
