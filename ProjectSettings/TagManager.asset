@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Tower
+  - Zombie
+  - UI
+  - Background
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -11,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Tower
   - 
   - 
   - 
@@ -38,8 +43,32 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1823200829
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Zombie
+    uniqueID: 1493388319
+    locked: 0
+  - name: Tower
+    uniqueID: 2575906487
+    locked: 0
+  - name: Player
+    uniqueID: 1756490019
+    locked: 0
+  - name: Drops
+    uniqueID: 3146037861
+    locked: 0
+  - name: PlayerBullet
+    uniqueID: 2192949357
+    locked: 0
+  - name: PlayerGun
+    uniqueID: 1834787249
+    locked: 0
+  - name: UI
+    uniqueID: 2556545801
     locked: 0
   m_RenderingLayers:
   - Default
