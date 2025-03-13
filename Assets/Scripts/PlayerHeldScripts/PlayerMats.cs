@@ -3,15 +3,17 @@ using UnityEngine;
 public class PlayerMats : MonoBehaviour
 {
     [SerializeField] public int mats = 0;
+    [SerializeField] public int maxMats = 999;
     
     public void AddMats(int newMats){
-        mats += newMats;
-        GameObject.FindWithTag("UI").GetComponent<InfoPanel>().UpdateInfo();
+        if (mats + newMats > maxMats)
+            mats = maxMats;
+        else
+            mats += newMats;
     }
 
-    public void upgradeCost(int cost){
+    public void UpgradeCost(int cost){
         mats -= cost;
-        GameObject.FindWithTag("UI").GetComponent<InfoPanel>().UpdateInfo();
         if(mats < 0){
             Debug.LogError("mats are negative, upgrade cost too much but still done");
         }

@@ -27,13 +27,15 @@ public class WeaponInfoController : MonoBehaviour
         if (isPaused)
         {
             sidebar.SetActive(true);
-            infoUpgradePanel.SetActive(true);
+            if (infoUpgradePanel)
+                infoUpgradePanel.SetActive(true);
             Time.timeScale = 0f;
         }
         else
         {
             sidebar.SetActive(false);
-            infoUpgradePanel.SetActive(false);
+            if (infoUpgradePanel)
+                infoUpgradePanel.SetActive(false);
             Time.timeScale = 1f;
         }
     }

@@ -20,6 +20,7 @@ public class ZombieBehavior : MonoBehaviour
     bool isAttacking = false;
     float distance = 0f;
     BoxCollider2D attackCollider;
+    Color originalColor;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class ZombieBehavior : MonoBehaviour
         attackCollider.enabled = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        originalColor = spriteRenderer.color;
     }
 
 
@@ -120,10 +122,8 @@ public class ZombieBehavior : MonoBehaviour
 
     IEnumerator Flash(float seconds)
     {
-        Color orignalColor = spriteRenderer.color;
-
-        spriteRenderer.color = Color.Lerp(orignalColor, Color.red, 0.5f);
+        spriteRenderer.color = Color.Lerp(originalColor, Color.red, 0.5f);
         yield return new WaitForSeconds(seconds);
-        spriteRenderer.color = orignalColor;
+        spriteRenderer.color = originalColor;
     }
 }

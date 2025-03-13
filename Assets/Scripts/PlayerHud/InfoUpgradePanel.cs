@@ -10,16 +10,20 @@ public class InfoPanel : MonoBehaviour
     public TextMeshProUGUI infoText;
     public TextMeshProUGUI matsText;
     public Button upgradeButton;
-    [SerializeField] private Gun currentWeapon;
+    [SerializeField] public PlayerWeaponController playerWeaponController;
     [SerializeField] private PlayerMats mats;
+    Gun currentWeapon;
     //
     private int[] levels = new int[4];
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
-        currentWeapon = weapons[0];
-        Debug.Log(mats);
+        if (!playerWeaponController)
+            playerWeaponController = GameObject.FindWithTag("Player").GetComponent<PlayerWeaponController>();
+        if (!mats)
+            mats = GameObject.FindWithTag("Player").GetComponent<PlayerMats>();
+
+        currentWeapon = playerWeaponController.currentWeapon;
         UpdateInfo();
     }
 
@@ -39,7 +43,7 @@ public class InfoPanel : MonoBehaviour
         {
             if (currentWeapon.costsPerLevel[currentWeapon.level] <= mats.mats){
                 Debug.Log("UPGRADE PISTOL");
-                mats.upgradeCost(currentWeapon.costsPerLevel[currentWeapon.level]);
+                mats.UpgradeCost(currentWeapon.costsPerLevel[currentWeapon.level]);
                 UpgradePistol(levels[currentWeapon.id]);
             }else{
                 Debug.Log("not enough mats");
@@ -49,7 +53,7 @@ public class InfoPanel : MonoBehaviour
         {
             if (currentWeapon.costsPerLevel[currentWeapon.level] <= mats.mats){
                 Debug.Log("UPGRADE SNIPER");
-                mats.upgradeCost(currentWeapon.costsPerLevel[currentWeapon.level]);
+                mats.UpgradeCost(currentWeapon.costsPerLevel[currentWeapon.level]);
                 UpgradeSniper(levels[currentWeapon.id]);
             }else{
                 Debug.Log("not enough mats");
@@ -59,7 +63,7 @@ public class InfoPanel : MonoBehaviour
         {
             if (currentWeapon.costsPerLevel[currentWeapon.level] <= mats.mats){
                 Debug.Log("UPGRADE SHOTGUN");
-                mats.upgradeCost(currentWeapon.costsPerLevel[currentWeapon.level]);
+                mats.UpgradeCost(currentWeapon.costsPerLevel[currentWeapon.level]);
                 UpgradeShotgun(levels[currentWeapon.id]);
             }else{
                 Debug.Log("not enough mats");

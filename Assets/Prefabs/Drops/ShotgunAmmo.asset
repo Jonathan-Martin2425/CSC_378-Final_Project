@@ -16,4 +16,4 @@ MonoBehaviour:
   relativeWeaponId: 2
   dropChance: 20
   dropCount: 8
-  sprite: {fileID: -5442335278848277292, guid: 3b53ca25fecc849aeab0714468f62f26, type: 3}
+  sprite: {fileID: 8954096247844741236, guid: 4b1b29b16d45d33488a750cd39ed6543, type: 3}

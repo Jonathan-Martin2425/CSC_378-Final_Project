@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7be9d980b4bc84abc3379113cb8e30, type: 3}
   m_Name: Materials
   m_EditorClassIdentifier: 
-  name: 
-  relativeWeaponId: 0
-  dropChance: 0
-  dropCount: 0
-  sprite: {fileID: 0}
+  name: Materials
+  relativeWeaponId: -1
+  dropChance: 7
+  dropCount: 50
+  sprite: {fileID: -2195040084631497593, guid: 37b3a24688dcf4342845c33b85c1d9c6, type: 3}
