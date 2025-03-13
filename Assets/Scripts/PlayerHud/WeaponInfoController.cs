@@ -9,7 +9,7 @@ public class WeaponInfoController : MonoBehaviour
     public GameObject sidebar;
     public GameObject infoUpgradePanel;
     // change this back to false after done testing
-    private bool isActive = false;
+    public static bool isPaused = false;
 
     // Update is called once per frame
     void Update()
@@ -22,9 +22,9 @@ public class WeaponInfoController : MonoBehaviour
 
     void ToggleInfoScreen()
     {
-        isActive = !isActive;
+        isPaused = !isPaused;
 
-        if (isActive)
+        if (isPaused)
         {
             sidebar.SetActive(true);
             infoUpgradePanel.SetActive(true);

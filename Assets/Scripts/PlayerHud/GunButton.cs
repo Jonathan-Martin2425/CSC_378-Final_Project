@@ -7,9 +7,13 @@ public class GunButton : MonoBehaviour
     public GameObject player;
     public Gun gun;
 
-    public void GunSelected()
+    public void SelectGun()
     {
-        Debug.Log("switched by UI");
+        if (WeaponInfoController.isPaused)
+        {
+            return;
+        }
+        
         player.GetComponent<PlayerWeaponController>().SwitchGun(gun.id);
     }
 }

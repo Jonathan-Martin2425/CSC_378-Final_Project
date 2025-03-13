@@ -52,6 +52,11 @@ public class PlayerController : MonoBehaviour
     //using spacebar/jump button to move in and out of tower
     void OnJump()
     {
+        if (WeaponInfoController.isPaused)
+        {
+            return;
+        }
+
         float distanceFromTower = (float)Math.Sqrt(Math.Pow(startPos.x - transform.position.x, 2) + 
                                                    Math.Pow(startPos.y - transform.position.y, 2));
         if(distanceFromTower <= enterDis + 1.5f){

@@ -68,6 +68,7 @@ public class ZombieBehavior : MonoBehaviour
 
     void Move()
     {
+        //Debug.Log("Zombie is moving");
         if (target == null) return;
 
         //get direction of target

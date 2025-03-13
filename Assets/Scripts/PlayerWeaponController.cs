@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 using System.Collections.Generic;
 using System;
 
@@ -25,6 +26,7 @@ public class PlayerWeaponController : MonoBehaviour
     [Header("Gun UI")]
     public GameObject[] weaponSlots;
     public Color selectedColor = new Color(231, 210, 34);
+    public GameObject swapOverlay;
     private Color defaultButtonColor;
     private bool canSwapWeapon = true;
 
@@ -48,6 +50,10 @@ public class PlayerWeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (WeaponInfoController.isPaused)
+        {
+            return;
+        }
         
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector2 worldPoint2D = mousePosition-transform.position;
@@ -57,7 +63,7 @@ public class PlayerWeaponController : MonoBehaviour
         // Add 180 to angle because rotation is opposite otherwise... for some reason
         transform.rotation = Quaternion.Euler(0, 0, angle + 180);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             currentWeapon.Fire(worldPoint2D);
         }
@@ -93,8 +99,45 @@ public class PlayerWeaponController : MonoBehaviour
     IEnumerator SwapCooldown(float seconds)
     {
         canSwapWeapon = false;
+        UpdateSwapOverlay(!canSwapWeapon);
         yield return new WaitForSeconds(seconds);
         canSwapWeapon = true;
+        UpdateSwapOverlay(!canSwapWeapon);
+    }
+
+    private void UpdateSwapOverlay(bool onCooldown)
+    {
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            if (currentWeapon.id == i)
+            {
+                continue;
+            }
+
+            if (onCooldown)
+            {
+                GameObject tempOverlay = Instantiate(swapOverlay, weaponSlots[i].transform);
+                tempOverlay.name = "SwapOverlay";
+                tempOverlay.GetComponent<RectTransform>().localScale = weaponSlots[i].GetComponent<RectTransform>().sizeDelta;
+            }
+            else
+            {
+                Destroy(GameObject.Find("SwapOverlay"));
+            }
+        }
+    }
+
+    private void RemoveSwapOverlay()
+    {
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            if (currentWeapon.id == i)
+            {
+                continue;
+            }
+
+
+        }
     }
 
     void HighlightButton(int id)
