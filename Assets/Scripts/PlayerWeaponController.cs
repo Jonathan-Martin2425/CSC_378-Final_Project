@@ -48,7 +48,7 @@ public class PlayerWeaponController : MonoBehaviour
         // Add 180 to angle because rotation is opposite otherwise... for some reason
         transform.rotation = Quaternion.Euler(0, 0, angle + 180);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             currentWeapon.Fire(worldPoint2D);
         }
