@@ -4429,6 +4429,10 @@ PrefabInstance:
       value: 92.85714
       objectReference: {fileID: 0}
     - target: {fileID: 6186794800843586942, guid: 2ff6ef2e4a7994b988af77b8b5a0d8c9, type: 3}
+      propertyPath: matsText
+      value: 
+      objectReference: {fileID: 8125341559403066265}
+    - target: {fileID: 6186794800843586942, guid: 2ff6ef2e4a7994b988af77b8b5a0d8c9, type: 3}
       propertyPath: upgradeButton
       value: 
       objectReference: {fileID: 6532072923803762918}
