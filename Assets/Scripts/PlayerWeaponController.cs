@@ -41,6 +41,10 @@ public class PlayerWeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (WeaponInfoController.isPaused)
+        {
+            return;
+        }
         
        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector2 worldPoint2D = mousePosition-transform.position;

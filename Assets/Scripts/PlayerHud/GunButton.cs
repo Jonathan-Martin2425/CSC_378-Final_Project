@@ -9,6 +9,11 @@ public class GunButton : MonoBehaviour
 
     public void SelectGun()
     {
+        if (WeaponInfoController.isPaused)
+        {
+            return;
+        }
+        
         player.GetComponent<PlayerWeaponController>().SwitchGun(gun.id);
     }
 }
