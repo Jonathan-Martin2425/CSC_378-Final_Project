@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1463688426278876594}
   - component: {fileID: 7427689703383101670}
   - component: {fileID: 7763019552360509319}
-  - component: {fileID: 6246385714425051717}
   - component: {fileID: 3006654667630374085}
-  m_Layer: 0
+  - component: {fileID: 6809178033083423663}
+  m_Layer: 6
   m_Name: ShotgunPellet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -117,19 +117,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6246385714425051717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6357714546221499671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 830d97779128a69478b369efc154f79d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletDamage: 1
 --- !u!58 &3006654667630374085
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -166,3 +153,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &6809178033083423663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357714546221499671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4d1ec33b1e37b48ab7e853c490266c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamage: 1
+  level: 0
+  isTrigger: 1
+  knockback: 1000

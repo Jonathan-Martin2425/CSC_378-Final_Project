@@ -38,11 +38,11 @@ public class DropBehavior : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Player picked up a drop");
+        //Debug.Log("Player picked up a drop");
         if (other.gameObject.CompareTag("Player"))
         {
             other.GetComponent<PlayerWeaponController>().AddAmmo(dropCount, id);
-            Debug.Log("Drop Destroyed");
+            //Debug.Log("Drop Destroyed");
             // add to inventory here
             Destroy(gameObject);
         }

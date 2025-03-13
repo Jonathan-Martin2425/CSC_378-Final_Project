@@ -17,7 +17,7 @@ public class DropBag : MonoBehaviour
         if (possibleDrops.Count > 0)
             return possibleDrops[Random.Range(0, possibleDrops.Count)];
 
-        Debug.Log("No items dropped! Sorry sucka!");
+        //Debug.Log("No items dropped! Sorry sucka!");
         return null;
     }
 
