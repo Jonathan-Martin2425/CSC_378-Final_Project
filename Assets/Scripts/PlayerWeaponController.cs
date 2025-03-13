@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class PlayerWeaponController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerWeaponController : MonoBehaviour
     [Header("Gun UI")]
     public GameObject[] weaponSlots;
     public Color selectedColor = new Color(231, 210, 34);
+    public GameObject swapOverlay;
     private Color defaultButtonColor;
     private bool canSwapWeapon = true;
 
@@ -80,8 +82,45 @@ public class PlayerWeaponController : MonoBehaviour
     IEnumerator SwapCooldown(float seconds)
     {
         canSwapWeapon = false;
+        UpdateSwapOverlay(!canSwapWeapon);
         yield return new WaitForSeconds(seconds);
         canSwapWeapon = true;
+        UpdateSwapOverlay(!canSwapWeapon);
+    }
+
+    private void UpdateSwapOverlay(bool onCooldown)
+    {
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            if (currentWeapon.id == i)
+            {
+                continue;
+            }
+
+            if (onCooldown)
+            {
+                GameObject tempOverlay = Instantiate(swapOverlay, weaponSlots[i].transform);
+                tempOverlay.name = "SwapOverlay";
+                tempOverlay.GetComponent<RectTransform>().localScale = weaponSlots[i].GetComponent<RectTransform>().sizeDelta;
+            }
+            else
+            {
+                Destroy(GameObject.Find("SwapOverlay"));
+            }
+        }
+    }
+
+    private void RemoveSwapOverlay()
+    {
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            if (currentWeapon.id == i)
+            {
+                continue;
+            }
+
+
+        }
     }
 
     void HighlightButton(int id)
