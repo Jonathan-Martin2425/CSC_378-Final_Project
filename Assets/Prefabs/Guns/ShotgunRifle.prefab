@@ -167,7 +167,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1834787249
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.7283019, g: 0.39735216, b: 0, a: 1}
@@ -306,7 +306,8 @@ MonoBehaviour:
   level: 0
   magSize: 8
   currentAmmo: 0
-  numPellets: 3
+  costsPerLevel: 2c01000000000000
+  numPellets: 5
   spread: 90
   bulletsPerReload: 1
   firePoints:

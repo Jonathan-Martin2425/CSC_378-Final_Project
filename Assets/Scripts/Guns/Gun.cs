@@ -1,5 +1,6 @@
 // using System.Numerics;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -23,6 +24,9 @@ public class Gun : MonoBehaviour
     [Header("Ammo Settings")]
     public int magSize = 15;
     public int currentAmmo = 0;
+    
+    [Header ("Upgrade Settings")]
+    public List<int> costsPerLevel = new List<int>();
 
 
     protected bool onCooldown = false;

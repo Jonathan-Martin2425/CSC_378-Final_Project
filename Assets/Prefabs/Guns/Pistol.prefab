@@ -104,8 +104,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1834787249
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 3920922835697823434}
   m_Layer: 0
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4061369981400198304}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -164,13 +164,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b757b2dd4b9cc4cbf343a3f999850e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePoint: {fileID: 721640360032397726}
+  bulletPrefab: {fileID: 3746611728287703164, guid: 07d06d472bd6bc14080d16281d891158, type: 3}
+  weaponController: {fileID: 0}
   id: 0
   gunName: Pistol
   fireRate: 2
   bulletSpeed: 10
   bulletDamage: 1
+  reloadTimeSeconds: 1
+  level: 0
   magSize: 15
   currentAmmo: 0
-  reloadTimeSeconds: 1
-  firePoint: {fileID: 721640360032397726}
-  bulletPrefab: {fileID: 3746611728287703164, guid: 07d06d472bd6bc14080d16281d891158, type: 3}
+  costsPerLevel: 6400000000000000

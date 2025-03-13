@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         float distanceFromTower = (float)Math.Sqrt(Math.Pow(startPos.x - transform.position.x, 2) + 
                                                    Math.Pow(startPos.y - transform.position.y, 2));
-        if(distanceFromTower <= enterDis + 1.5f){
+        if(distanceFromTower <= enterDis + Math.Abs(exitPos.x)){
             if (inTower){
                 tower.layer = 0;
                 playerPos.position = exitPos;

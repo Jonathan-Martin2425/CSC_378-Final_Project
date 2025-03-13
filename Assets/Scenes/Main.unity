@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: tower
       value: 
       objectReference: {fileID: 1155962949}
+    - target: {fileID: 6774544599459821585, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: numPellets
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
