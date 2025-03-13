@@ -168,4 +168,4 @@ MonoBehaviour:
   bulletDamage: 1
   level: 0
   isTrigger: 1
-  knockback: 1000
+  knockback: 500

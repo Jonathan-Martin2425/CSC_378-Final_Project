@@ -300,16 +300,15 @@ MonoBehaviour:
   id: 2
   gunName: Shotgun
   fireRate: 1
-  bulletSpeed: 5
-  bulletDamage: 2
-  reloadTimeSeconds: 0.2
+  bulletSpeed: 7.5
+  bulletDamage: 1
+  reloadTimeSeconds: 0.4
   level: 0
   magSize: 8
   currentAmmo: 0
-  numPellets: 5
+  numPellets: 3
   spread: 90
   bulletsPerReload: 1
-  knockback: {fileID: 6200000, guid: 3f4d5d9f8f3891c41b56097fc2885579, type: 2}
   firePoints:
   - {fileID: 3648292799650040875}
   - {fileID: 7184288994815728962}

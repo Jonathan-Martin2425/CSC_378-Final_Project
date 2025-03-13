@@ -369,14 +369,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6774392938629287849}
     m_Modifications:
-    - target: {fileID: 3218770452347989098, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.2
+    - target: {fileID: 6053379232167276603, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
+      propertyPath: numPellets
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053379232167276603, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
+      propertyPath: bulletSpeed
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053379232167276603, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
+      propertyPath: bulletDamage
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6053379232167276603, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 1891223258268923589}
+    - target: {fileID: 6053379232167276603, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
+      propertyPath: reloadTimeSeconds
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7191124746750895368, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
       propertyPath: m_Name
       value: ShotgunRifle
@@ -420,10 +432,6 @@ PrefabInstance:
     - target: {fileID: 8044556463655419308, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8860647856102535567, guid: 3c2e327f1ac81384fbfcb1db2782242e, type: 3}
-      propertyPath: m_Name
-      value: FirePoint (0)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
