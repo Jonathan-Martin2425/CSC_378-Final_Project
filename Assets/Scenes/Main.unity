@@ -1243,16 +1243,20 @@ PrefabInstance:
       value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 3886745030086319924, guid: 834b2017692ec354f93a942f69e8d9dd, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886745030086319924, guid: 834b2017692ec354f93a942f69e8d9dd, type: 3}
       propertyPath: m_Color.b
-      value: 0.79622644
+      value: 0.76862746
       objectReference: {fileID: 0}
     - target: {fileID: 3886745030086319924, guid: 834b2017692ec354f93a942f69e8d9dd, type: 3}
       propertyPath: m_Color.g
-      value: 0.79622644
+      value: 0.76862746
       objectReference: {fileID: 0}
     - target: {fileID: 3886745030086319924, guid: 834b2017692ec354f93a942f69e8d9dd, type: 3}
       propertyPath: m_Color.r
-      value: 0.79622644
+      value: 0.76862746
       objectReference: {fileID: 0}
     - target: {fileID: 3886745030086319924, guid: 834b2017692ec354f93a942f69e8d9dd, type: 3}
       propertyPath: m_SortingLayer
