@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour
     [Header("Ammo Settings")]
     public int magSize = 15;
     public int currentAmmo = 0;
+    public bool isReloading = false;
     
     [Header ("Upgrade Settings")]
     public List<int> costsPerLevel = new List<int>();
@@ -45,7 +46,7 @@ public class Gun : MonoBehaviour
         
     }
 
-    void OnEnable()
+    protected virtual void OnEnable()
     {
         if (!weaponController)
             weaponController = GetComponent<PlayerWeaponController>();
@@ -58,7 +59,7 @@ public class Gun : MonoBehaviour
 
     public virtual void Fire(Vector2 direction)
     {
-        if (onCooldown == false && currentAmmo != 0)
+        if (onCooldown == false && currentAmmo != 0 && !isReloading)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -101,7 +102,9 @@ public class Gun : MonoBehaviour
     IEnumerator ReloadCooldown(float seconds)
     {
         Coroutine rotationCoroutine = StartCoroutine(RotateAmmoIcon());
+        isReloading = true;
         yield return new WaitForSeconds(seconds);
+        isReloading = false;
         StopCoroutine(rotationCoroutine);
         ammoIcon.rotation = Quaternion.identity;
         weaponController.ReloadWeapon();
@@ -110,7 +113,9 @@ public class Gun : MonoBehaviour
     IEnumerator ReloadCooldown(float seconds, int ammoToAdd)
     {
         Coroutine rotationCoroutine = StartCoroutine(RotateAmmoIcon());
+        isReloading = true;
         yield return new WaitForSeconds(seconds);
+        isReloading = false;
         StopCoroutine(rotationCoroutine);
         ammoIcon.rotation = Quaternion.identity;
         weaponController.ReloadWeapon(ammoToAdd);
