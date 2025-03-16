@@ -75,6 +75,8 @@ public class InfoPanel : MonoBehaviour
 
     public void UpdateInfo()
     {
+        // infoText.text = $" Damage: {currentWeapon.bulletDamage} -> {upgradePaths[currentWeapon.id][0]["bulletDamage"]}";
+
         infoText.text =  " Damage: " + currentWeapon.bulletDamage + "\n" + 
         " Rate of Fire: " + currentWeapon.fireRate + "\n" + 
         " Reload Speed: " + currentWeapon.reloadTimeSeconds + "\n" + 
