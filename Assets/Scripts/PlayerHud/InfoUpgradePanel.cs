@@ -13,7 +13,6 @@ public class InfoPanel : MonoBehaviour
     [SerializeField] public PlayerWeaponController playerWeaponController;
     [SerializeField] private PlayerMats mats;
     Gun currentWeapon;
-    //
     private int[] levels = new int[4];
 
     void OnEnable()
