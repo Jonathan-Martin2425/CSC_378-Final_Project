@@ -478,29 +478,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 577639701}
     m_Modifications:
     - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
-      propertyPath: isDual
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
       propertyPath: ammoIcon
       value: 
       objectReference: {fileID: 1622624976}
     - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
-      propertyPath: fireRate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
-      propertyPath: currentAmmo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
-      propertyPath: hasBurstUpgrade
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 670807149}
+    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
+      propertyPath: 'costsPerLevel.Array.data[1]'
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
+      propertyPath: 'costsPerLevel.Array.data[2]'
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1720415387028916988, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

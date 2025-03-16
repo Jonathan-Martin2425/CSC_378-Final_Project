@@ -23,7 +23,7 @@ public class InfoPanel : MonoBehaviour
             {0, new Dictionary<int, string>
                 {
                     {0, "Increased mag size."},
-                    {1, "Get second pistol, Akimbo style."},
+                    {1, "Increased mag size. Get second pistol, Akimbo style."},
                     {2, "Pistol now have burst fire."},
 
                 }
@@ -106,24 +106,24 @@ public class InfoPanel : MonoBehaviour
 
     void UpgradePistol(int level)
     {
+        Pistol pistol = (Pistol)currentWeapon;
         switch(level)
         {
             case 0:
-                // old dictionary idea
-                // maybe include with some methods
-                /*foreach (var upgrade in upgradePaths[currentWeapon.id][currentWeapon.level])
-                {
-                    FieldInfo field = currentWeapon.GetType().GetField(upgrade.Key);
-                    float currentValue = (float)field.GetValue(currentWeapon);
-                    field.SetValue(currentWeapon, currentValue + upgrade.Value);
-
-                    Debug.Log("Upgraded pistol " + upgrade.Key + " from "
-                        + currentValue + " to " + field.GetValue(currentWeapon));
-                }*/
-
+                pistol.magSize *= 2;
                 levels[currentWeapon.id] += 1;
-                currentWeapon.level += 1;
-
+                pistol.level += 1;
+                break;
+            case 1:
+                pistol.isDual = true;
+                pistol.magSize *= 2;
+                levels[currentWeapon.id] += 1;
+                pistol.level += 1;
+                break;
+            case 2:
+                pistol.hasBurstUpgrade = true;
+                levels[currentWeapon.id] += 1;
+                pistol.level += 1;
                 break;
             default:
                 Debug.Log("Pistol fully upgraded");

@@ -210,7 +210,7 @@ MonoBehaviour:
   magSize: 15
   currentAmmo: 0
   isReloading: 0
-  costsPerLevel: 6400000000000000
+  costsPerLevel: 64000000fa000000f401000000000000
   ammoIcon: {fileID: 0}
   firePoints:
   - {fileID: 721640360032397726}
