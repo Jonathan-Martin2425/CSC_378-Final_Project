@@ -12,8 +12,12 @@ public class DestroyPellet : DestroyBullet
                 Rigidbody2D otherRb = collision.gameObject.GetComponent<Rigidbody2D>();
                 otherRb.AddForce(force * otherRb.mass);
             }
-            collision.GetComponent<ZombieBehavior>()
-                .TakeDamage(bulletDamage);
+            ZombieBehavior zombie = collision.gameObject.GetComponent<ZombieBehavior>();
+            if(level >= 3){
+                zombie.setOnFire();
+            }
+            
+            zombie.TakeDamage(bulletDamage);
         }
 
         if(!collision.CompareTag("Bullet")){

@@ -222,6 +222,9 @@ MonoBehaviour:
   acceleration: 5
   health: 3
   scoreVal: 10
+  fireDuration: 3
+  fireTickDamage: 0.5
+  numFireTicks: 3
 --- !u!114 &4485525990462956517
 MonoBehaviour:
   m_ObjectHideFlags: 0

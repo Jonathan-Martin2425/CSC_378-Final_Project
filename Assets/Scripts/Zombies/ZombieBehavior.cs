@@ -14,13 +14,16 @@ public class ZombieBehavior : MonoBehaviour
     [SerializeField] float acceleration = 5f;
     [SerializeField] float health = 3f;
     [SerializeField] float scoreVal = 10f;
+    [SerializeField] float fireDuration = 2f;
+    [SerializeField] float fireTickDamage = 1f;
+    [SerializeField] int numFireTicks = 2;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
-
     bool isAttacking = false;
     float distance = 0f;
     BoxCollider2D attackCollider;
     Color originalColor;
+    bool isOnFire = false;
 
     void Start()
     {
@@ -130,5 +133,22 @@ public class ZombieBehavior : MonoBehaviour
         spriteRenderer.color = Color.Lerp(originalColor, Color.red, 0.5f);
         yield return new WaitForSeconds(seconds);
         spriteRenderer.color = originalColor;
+    }
+
+    public void setOnFire(){
+        if(!isOnFire){
+            StartCoroutine(takeFireDamage(fireDuration));
+        }
+    }
+
+    IEnumerator takeFireDamage(float seconds){
+        isOnFire = true;
+        float tickInterval = seconds / numFireTicks;
+        for(int i = 0; i < numFireTicks; i++){
+            yield return new WaitForSeconds(tickInterval);
+            TakeDamage(fireTickDamage);
+        }
+        isOnFire = false;
+
     }
 }

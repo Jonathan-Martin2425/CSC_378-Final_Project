@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Shotgun : Gun
 {
+    [Header ("Shotgun settings")]
     public int numPellets = 8;
     public float spread = 45f;
     public int bulletsPerReload = 1;
@@ -45,9 +46,4 @@ public class Shotgun : Gun
         }
     }
 
-    public void upgradeShotgun(int level){
-        if(level == 1){
-            
-        }
-    }
 }

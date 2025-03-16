@@ -148,11 +148,22 @@ public class InfoPanel : MonoBehaviour
 
     void UpgradeShotgun(int level)
     {
+        Shotgun shotgun = (Shotgun)currentWeapon;
         switch(level)
         {
             case 0:
                 levels[currentWeapon.id] += 1;
-                currentWeapon.level += 1;
+                shotgun.level += 1;
+                break;
+            case 1:
+                shotgun.spread = 90f;
+                shotgun.numPellets = 8;
+                levels[currentWeapon.id] += 1;
+                shotgun.level += 1;
+                break;
+            case 2:
+                levels[currentWeapon.id] += 1;
+                shotgun.level += 1;
                 break;
             default:
                 Debug.Log("Shotgun fully upgraded");
