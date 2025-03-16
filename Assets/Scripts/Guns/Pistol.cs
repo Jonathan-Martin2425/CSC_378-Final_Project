@@ -12,6 +12,7 @@ public class Pistol : Gun
     private bool canBurst = true;
     public int burstCount = 3;
     public float burstDelay = 0.2f;
+    public AudioSource dualSound;
 
     public override void Fire(Vector2 direction){
         if (onCooldown == false && currentAmmo > 0)
@@ -91,6 +92,7 @@ public class Pistol : Gun
                 rbR.linearVelocity = direction * bulletSpeed;
             }
             currentAmmo -= 1;
+            dualSound.Play();
         }
         else 
         {
@@ -104,6 +106,7 @@ public class Pistol : Gun
             }
 
             currentAmmo -= 1;
+            fireSound.Play();
         }
 
         if (currentAmmo < 0)
