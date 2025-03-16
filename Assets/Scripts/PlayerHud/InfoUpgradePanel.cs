@@ -15,6 +15,7 @@ public class InfoPanel : MonoBehaviour
     Gun currentWeapon;
     //
     private int[] levels = new int[4];
+    private Dictionary<int, Dictionary<int, Dictionary<string, float>>> upgrades;
 
     void OnEnable()
     {
