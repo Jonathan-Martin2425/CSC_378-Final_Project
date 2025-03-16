@@ -146,6 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18c12d775282437fa7106eb4ee06bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &223845776 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8377221243136456761, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+  m_PrefabInstance: {fileID: 362076404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &301164204 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8969696238923066206, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
@@ -165,62 +170,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4006811767651594765, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: mats
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1437416479900851653, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b35303c91a3c34dd6ae9674fe810b8e5, type: 3}
-    - target: {fileID: 1437416479900851653, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1437416479900851653, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1437416479900851653, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+    - target: {fileID: 1590293030119643929, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: ammoIcon
       value: 
       objectReference: {fileID: 935496546}
     - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: fireRate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: weaponController
+      propertyPath: fireSound
       value: 
-      objectReference: {fileID: 105500513}
+      objectReference: {fileID: 992145208}
     - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: costsPerLevel.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[1]'
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[2]'
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: swapOverlay
+      propertyPath: reloadSound
       value: 
-      objectReference: {fileID: 2024022993313271063, guid: dbbd1ac5712b54ec390c8bb2f8f639cd, type: 3}
-    - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: currentWeapon
-      value: 
-      objectReference: {fileID: 416498574}
-    - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'weapons.Array.data[0]'
-      value: 
-      objectReference: {fileID: 416498574}
+      objectReference: {fileID: 223845776}
     - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: 'weaponSlots.Array.data[0]'
       value: 
@@ -233,6 +198,10 @@ PrefabInstance:
       propertyPath: 'weaponSlots.Array.data[2]'
       value: 
       objectReference: {fileID: 4598692031794711281}
+    - target: {fileID: 1969544084439262418, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_Volume
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3416523600730283456, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -273,18 +242,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3478397076782405813, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: ammoIcon
-      value: 
-      objectReference: {fileID: 935496546}
-    - target: {fileID: 3478397076782405813, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: costsPerLevel.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3478397076782405813, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[0]'
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3824777238965424877, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_Name
       value: Player
@@ -294,45 +251,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 935496546}
     - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: costsPerLevel.Array.size
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: fireSound
+      value: 
+      objectReference: {fileID: 992145208}
     - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[0]'
-      value: 500
-      objectReference: {fileID: 0}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 223845776}
     - target: {fileID: 6210820162015045980, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: tower
       value: 
       objectReference: {fileID: 373648576}
-    - target: {fileID: 6210820162015045980, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: exitPos.x
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774544599459821585, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: level
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6774544599459821585, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: ammoIcon
       value: 
       objectReference: {fileID: 935496546}
     - target: {fileID: 6774544599459821585, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: costsPerLevel.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774544599459821585, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[0]'
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774544599459821585, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[1]'
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774544599459821585, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[2]'
-      value: 800
-      objectReference: {fileID: 0}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 223845776}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -495,6 +432,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5486414304438008499, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
   m_PrefabInstance: {fileID: 1264333377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &992145208 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1969544084439262418, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+  m_PrefabInstance: {fileID: 362076404}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1264333377
 PrefabInstance:

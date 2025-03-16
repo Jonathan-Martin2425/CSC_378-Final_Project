@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public PlayerWeaponController weaponController;
+    public AudioSource fireSound;
+    public AudioSource reloadSound;
     
 
     [Header("Gun Settings")]
@@ -69,6 +71,7 @@ public class Gun : MonoBehaviour
             if (rb != null)
             {
                 currentAmmo -= 1;
+                fireSound.Play();
                 rb.linearVelocity = direction * bulletSpeed;
             }
 
@@ -102,6 +105,7 @@ public class Gun : MonoBehaviour
     IEnumerator ReloadCooldown(float seconds)
     {
         Coroutine rotationCoroutine = StartCoroutine(RotateAmmoIcon());
+        reloadSound.Play();
         isReloading = true;
         yield return new WaitForSeconds(seconds);
         isReloading = false;
@@ -113,6 +117,7 @@ public class Gun : MonoBehaviour
     IEnumerator ReloadCooldown(float seconds, int ammoToAdd)
     {
         Coroutine rotationCoroutine = StartCoroutine(RotateAmmoIcon());
+        reloadSound.Play();
         isReloading = true;
         yield return new WaitForSeconds(seconds);
         isReloading = false;
