@@ -8,6 +8,8 @@ public class Shotgun : Gun
     public int numPellets = 8;
     public float spread = 45f;
     public int bulletsPerReload = 1;
+    public AudioSource pumpSound;
+    public float pumpDelay = 1f;
     [SerializeField] List<Transform> firePoints = new List<Transform>();
     public override void Fire(Vector2 direction){
         if (onCooldown == false && currentAmmo != 0)
@@ -32,10 +34,11 @@ public class Shotgun : Gun
                 DestroyBullet bulletScript = bullet.GetComponent<DestroyBullet>();
                 bulletScript.setLevel(level);
                 bulletScript.SetDamage(bulletDamage);
-
             }
 
             currentAmmo -= 1;
+            fireSound.Play();
+            pumpSound.PlayDelayed(pumpDelay);
 
             if (currentAmmo == 0)
             {
