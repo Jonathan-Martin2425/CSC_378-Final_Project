@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 using System.Collections.Generic;
+using System.Reflection;
 
 public class InfoPanel : MonoBehaviour
 {
@@ -15,7 +16,51 @@ public class InfoPanel : MonoBehaviour
     Gun currentWeapon;
     //
     private int[] levels = new int[4];
-    private Dictionary<int, Dictionary<int, Dictionary<string, float>>> upgrades;
+    
+    // {weaponId = {weaponLevel = {fieldName = upgradeValue}}}
+    private Dictionary<int, Dictionary<int, Dictionary<string, float>>> upgradePaths =
+        new()
+        {
+            {0, new Dictionary<int, Dictionary<string, float>>
+                {
+                    {0, new Dictionary<string, float>
+                        {
+                            // {"fireRate", 1f},
+                            // {"bulletSpeed", 1f},
+                            {"bulletDamage", 1f},
+                            // {"reloadTimeSeconds", 1f}
+                        }
+                    },
+                    // {1, new Dictionary<string, float>{...}},
+                }
+            },
+            {1, new Dictionary<int, Dictionary<string, float>>
+                {
+                    {0, new Dictionary<string, float>
+                        {
+                            {"fireRate", 1f},
+                            // {"bulletSpeed", 1f},
+                            // {"bulletDamage", 1f},
+                            // {"reloadTimeSeconds", 1f}
+                        }
+                    },
+                    // {1, new Dictionary<string, float>{...}},
+                }
+            },
+            {2, new Dictionary<int, Dictionary<string, float>>
+                {
+                    {0, new Dictionary<string, float>
+                        {
+                            // {"fireRate", 1f},
+                            // {"bulletSpeed", 1f},
+                            // {"bulletDamage", 1f},
+                            // {"reloadTimeSeconds", 1f}
+                        }
+                    },
+                    // {1, new Dictionary<string, float>{...}},
+                }
+            },
+        };
 
     void OnEnable()
     {
@@ -80,16 +125,22 @@ public class InfoPanel : MonoBehaviour
 
     void UpgradePistol(int level)
     {
-
         switch(level)
         {
             case 0:
+                foreach (var upgrade in upgradePaths[currentWeapon.id][currentWeapon.level])
+                {
+                    FieldInfo field = currentWeapon.GetType().GetField(upgrade.Key);
+                    float currentValue = (float)field.GetValue(currentWeapon);
+                    field.SetValue(currentWeapon, currentValue + upgrade.Value);
+
+                    Debug.Log("Upgraded pistol " + upgrade.Key + " from "
+                        + currentValue + " to " + field.GetValue(currentWeapon));
+                }
+
                 levels[currentWeapon.id] += 1;
                 currentWeapon.level += 1;
-                // currentWeapon.fireRate += 1;
-                // currentWeapon.bulletSpeed += 1;
-                currentWeapon.bulletDamage += 1;
-                // currentWeapon.reloadTimeSeconds += 1;
+
                 break;
             default:
                 Debug.Log("Pistol fully upgraded");
@@ -102,12 +153,19 @@ public class InfoPanel : MonoBehaviour
         switch(level)
         {
             case 0:
+                foreach (var upgrade in upgradePaths[currentWeapon.id][currentWeapon.level])
+                {
+                    FieldInfo field = currentWeapon.GetType().GetField(upgrade.Key);
+                    float currentValue = (float)field.GetValue(currentWeapon);
+                    field.SetValue(currentWeapon, currentValue + upgrade.Value);
+
+                    Debug.Log("Upgraded sniper " + upgrade.Key + " from "
+                        + currentValue + " to " + field.GetValue(currentWeapon));
+                }
+
                 levels[currentWeapon.id] += 1;
                 currentWeapon.level += 1;
-                currentWeapon.fireRate += 1;
-                // currentWeapon.bulletSpeed += 1;
-                // currentWeapon.bulletDamage += 1;
-                // currentWeapon.reloadTimeSeconds += 1;
+
                 break;
             default:
                 Debug.Log("Sniper fully upgraded");
