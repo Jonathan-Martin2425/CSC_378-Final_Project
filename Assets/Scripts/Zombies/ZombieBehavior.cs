@@ -17,6 +17,7 @@ public class ZombieBehavior : MonoBehaviour
     [SerializeField] float fireDuration = 2f;
     [SerializeField] float fireTickDamage = 1f;
     [SerializeField] int numFireTicks = 2;
+    [SerializeField] ParticleSystem fireEffect;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     bool isAttacking = false;
@@ -35,6 +36,8 @@ public class ZombieBehavior : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         originalColor = spriteRenderer.color;
+
+        fireEffect.Stop();
     }
 
     // to prevent insane knockback
@@ -143,11 +146,13 @@ public class ZombieBehavior : MonoBehaviour
 
     IEnumerator takeFireDamage(float seconds){
         isOnFire = true;
+        fireEffect.Play();
         float tickInterval = seconds / numFireTicks;
         for(int i = 0; i < numFireTicks; i++){
             yield return new WaitForSeconds(tickInterval);
             TakeDamage(fireTickDamage);
         }
+        fireEffect.Stop();
         isOnFire = false;
 
     }
