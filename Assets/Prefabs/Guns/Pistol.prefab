@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 721640360032397726}
   m_Layer: 0
-  m_Name: FirePoint
+  m_Name: FirePoint (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,6 +118,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2774524501092352158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 397944476852074676}
+  m_Layer: 0
+  m_Name: FirePoint (R)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &397944476852074676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2774524501092352158}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1720415387028916988}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4061369981400198304
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1720415387028916988}
-  - component: {fileID: 3920922835697823434}
+  - component: {fileID: 1278545314072059328}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Player
@@ -150,9 +181,11 @@ Transform:
   m_Children:
   - {fileID: 5143314848368858498}
   - {fileID: 721640360032397726}
+  - {fileID: 4746317649472493431}
+  - {fileID: 397944476852074676}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3920922835697823434
+--- !u!114 &1278545314072059328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +194,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4061369981400198304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b757b2dd4b9cc4cbf343a3f999850e, type: 3}
+  m_Script: {fileID: 11500000, guid: 434e396e95c52461db5837c2da145535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 721640360032397726}
@@ -169,11 +202,52 @@ MonoBehaviour:
   weaponController: {fileID: 0}
   id: 0
   gunName: Pistol
-  fireRate: 2
+  fireRate: 1
   bulletSpeed: 10
   bulletDamage: 1
   reloadTimeSeconds: 1
   level: 0
   magSize: 15
   currentAmmo: 0
+  isReloading: 0
   costsPerLevel: 6400000000000000
+  ammoIcon: {fileID: 0}
+  firePoints:
+  - {fileID: 721640360032397726}
+  - {fileID: 4746317649472493431}
+  - {fileID: 397944476852074676}
+  isDual: 0
+  hasBurstUpgrade: 0
+  burstCount: 3
+  burstDelay: 0.1
+--- !u!1 &6078960807743793510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4746317649472493431}
+  m_Layer: 0
+  m_Name: FirePoint (L)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4746317649472493431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078960807743793510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1720415387028916988}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

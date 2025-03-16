@@ -8,13 +8,13 @@ public class Pistol : Gun
 {
     [SerializeField] List<Transform> firePoints = new List<Transform>();
     public bool isDual = false;
-    public bool hasBurstUpgrade = true;
+    public bool hasBurstUpgrade = false;
     private bool canBurst = true;
     public int burstCount = 3;
     public float burstDelay = 0.2f;
 
     public override void Fire(Vector2 direction){
-        if (onCooldown == false && currentAmmo != 0)
+        if (onCooldown == false && currentAmmo > 0)
         {
             if (isDual)
             {
@@ -32,14 +32,11 @@ public class Pistol : Gun
                 FireBullet(direction);
             }
 
-            currentAmmo -= 1;
-
-            if (currentAmmo == 0)
+            if (currentAmmo <= 0)
             {
                 Reload();
             }
             StartCoroutine(FireCooldown(1 / fireRate));
-
         }
     }
 
@@ -78,11 +75,13 @@ public class Pistol : Gun
             {
                 rbL.linearVelocity = direction * bulletSpeed;
             }
+            currentAmmo -= 1;
 
             if (rbR != null)
             {
                 rbR.linearVelocity = direction * bulletSpeed;
             }
+            currentAmmo -= 1;
         }
         else 
         {
@@ -92,9 +91,15 @@ public class Pistol : Gun
 
             if (rb != null)
             {
-                currentAmmo -= 1;
                 rb.linearVelocity = direction * bulletSpeed;
             }
+
+            currentAmmo -= 1;
+        }
+
+        if (currentAmmo < 0)
+        {
+            currentAmmo = 0;
         }
     }
 }
