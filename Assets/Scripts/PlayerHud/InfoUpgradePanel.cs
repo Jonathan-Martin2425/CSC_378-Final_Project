@@ -62,7 +62,6 @@ public class InfoPanel : MonoBehaviour
         " Reload Speed: " + currentWeapon.reloadTimeSeconds + "\n" + 
         " Magazine Capacity: " + currentWeapon.magSize;
         matsText.text = $"Materials Needed: {mats.mats}/{currentWeapon.costsPerLevel[currentWeapon.level]}";
-        // change images here
     }
 
     public void UpgradeWeapon()

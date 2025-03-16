@@ -72,7 +72,7 @@ public class Gun : MonoBehaviour
                 rb.linearVelocity = direction * bulletSpeed;
             }
 
-            if (currentAmmo == 0)
+            if (currentAmmo <= 0)
             {
                 Reload();
             }
