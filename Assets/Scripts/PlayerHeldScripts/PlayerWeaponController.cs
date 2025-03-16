@@ -222,11 +222,14 @@ public class PlayerWeaponController : MonoBehaviour
     }
 
     void OnReload(){
-        if(currentWeapon.GetType().Equals(typeof(Shotgun))){
-            Shotgun gun = (Shotgun)currentWeapon;
-            currentWeapon.Reload(gun.bulletsPerReload);
-        }else{
-            currentWeapon.Reload();
+        if (!currentWeapon.isReloading && currentWeapon.currentAmmo != currentWeapon.magSize)
+        {
+            if(currentWeapon.GetType().Equals(typeof(Shotgun))){
+                Shotgun gun = (Shotgun)currentWeapon;
+                currentWeapon.Reload(gun.bulletsPerReload);
+            }else{
+                currentWeapon.Reload();
+            }
         }
     }
 

@@ -34,6 +34,14 @@ public class ZombieBehavior : MonoBehaviour
         originalColor = spriteRenderer.color;
     }
 
+    // to prevent insane knockback
+    void Update()
+    {
+        if(rb.linearVelocity.magnitude > movementSpeed){
+            Vector3 direction = rb.linearVelocity.normalized;
+            rb.linearVelocity = direction * movementSpeed;
+        }
+    }
 
     void FixedUpdate()
     {
@@ -84,9 +92,6 @@ public class ZombieBehavior : MonoBehaviour
         // goes over movementSpeed
         direction.Normalize();
         rb.AddForce(direction * acceleration * rb.mass); // mass normalizes knockback
-        if(rb.linearVelocity.magnitude > movementSpeed){
-            rb.linearVelocity = direction * movementSpeed;
-        }
     }
 
     void OnCollisionStay2D(Collision2D collision)
