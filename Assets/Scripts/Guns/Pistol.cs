@@ -45,6 +45,11 @@ public class Pistol : Gun
         canBurst = true;
         for (int i = 0; i < burstCount; i++)
         {
+            if (currentAmmo <= 0)
+            {
+                break;
+            }
+
             // Recalculate the mouse position for each burst
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Vector2 worldPoint2D = mousePosition-transform.position;
@@ -57,6 +62,10 @@ public class Pistol : Gun
             yield return new WaitForSeconds(burstDelay);
         }
         canBurst = true;
+        if (currentAmmo <= 0)
+        {
+            Reload();
+        }
     }
 
     private void FireBullet(Vector2 direction)
