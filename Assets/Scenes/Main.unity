@@ -1136,6 +1136,10 @@ PrefabInstance:
       propertyPath: spawnRate
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
+      propertyPath: constructionZombiePrefab
+      value: 
+      objectReference: {fileID: 2625531417755594487, guid: 076267cecc151497d95ba2f3db6b4710, type: 3}
     - target: {fileID: 3496107128932779586, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: m_Name
       value: ZombieManager
