@@ -17,46 +17,29 @@ public class InfoPanel : MonoBehaviour
     private int[] levels = new int[4];
     
     // {weaponId = {weaponLevel = {fieldName = upgradeValue}}}
-    private Dictionary<int, Dictionary<int, Dictionary<string, float>>> upgradePaths =
+    private Dictionary<int, Dictionary<int,string>> upgradePathsText =
         new()
         {
-            {0, new Dictionary<int, Dictionary<string, float>>
+            {0, new Dictionary<int, string>
                 {
-                    {0, new Dictionary<string, float>
-                        {
-                            // {"fireRate", 1f},
-                            // {"bulletSpeed", 1f},
-                            {"bulletDamage", 1f},
-                            // {"reloadTimeSeconds", 1f}
-                        }
-                    },
-                    // {1, new Dictionary<string, float>{...}},
+                    {0, "Increased mag size."},
+                    {1, "Get second pistol, Akimbo style."},
+                    {2, "Pistol now have burst fire."},
+
                 }
             },
-            {1, new Dictionary<int, Dictionary<string, float>>
+            {1, new Dictionary<int, string>
                 {
-                    {0, new Dictionary<string, float>
-                        {
-                            {"fireRate", 1f},
-                            // {"bulletSpeed", 1f},
-                            // {"bulletDamage", 1f},
-                            // {"reloadTimeSeconds", 1f}
-                        }
-                    },
-                    // {1, new Dictionary<string, float>{...}},
+                    {0, "Sniper 1."},
+                    {1, "Sniper 2."},
+                    {2, "Sniper 3."},
                 }
             },
-            {2, new Dictionary<int, Dictionary<string, float>>
+            {2, new Dictionary<int, string>
                 {
-                    {0, new Dictionary<string, float>
-                        {
-                            // {"fireRate", 1f},
-                            // {"bulletSpeed", 1f},
-                            // {"bulletDamage", 1f},
-                            // {"reloadTimeSeconds", 1f}
-                        }
-                    },
-                    // {1, new Dictionary<string, float>{...}},
+                    {0, "Shotgun does knockback."},
+                    {1, "More pellets, wider spread."},
+                    {2, "Fireeeeee."},
                 }
             },
         };
@@ -127,7 +110,9 @@ public class InfoPanel : MonoBehaviour
         switch(level)
         {
             case 0:
-                foreach (var upgrade in upgradePaths[currentWeapon.id][currentWeapon.level])
+                // old dictionary idea
+                // maybe include with some methods
+                /*foreach (var upgrade in upgradePaths[currentWeapon.id][currentWeapon.level])
                 {
                     FieldInfo field = currentWeapon.GetType().GetField(upgrade.Key);
                     float currentValue = (float)field.GetValue(currentWeapon);
@@ -135,7 +120,7 @@ public class InfoPanel : MonoBehaviour
 
                     Debug.Log("Upgraded pistol " + upgrade.Key + " from "
                         + currentValue + " to " + field.GetValue(currentWeapon));
-                }
+                }*/
 
                 levels[currentWeapon.id] += 1;
                 currentWeapon.level += 1;
@@ -152,16 +137,6 @@ public class InfoPanel : MonoBehaviour
         switch(level)
         {
             case 0:
-                foreach (var upgrade in upgradePaths[currentWeapon.id][currentWeapon.level])
-                {
-                    FieldInfo field = currentWeapon.GetType().GetField(upgrade.Key);
-                    float currentValue = (float)field.GetValue(currentWeapon);
-                    field.SetValue(currentWeapon, currentValue + upgrade.Value);
-
-                    Debug.Log("Upgraded sniper " + upgrade.Key + " from "
-                        + currentValue + " to " + field.GetValue(currentWeapon));
-                }
-
                 levels[currentWeapon.id] += 1;
                 currentWeapon.level += 1;
 
