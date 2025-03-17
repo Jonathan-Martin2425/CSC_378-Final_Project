@@ -4,7 +4,7 @@ using System.Collections;
 public class SoldierZombieBehavior : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform target;      
+    [SerializeField] private Transform target;       // Tower's transform.
     private TowerHealth towerHealth;                   // Reference to the TowerHealth script.
 
     [Header("Movement Settings")]
@@ -19,6 +19,13 @@ public class SoldierZombieBehavior : MonoBehaviour
     [Header("Health/Scoring")]
     [SerializeField] private float health = 3f;
     [SerializeField] private float scoreVal = 10f;
+
+    [Header("Fire Effect Settings")]
+    [SerializeField] private ParticleSystem fireEffect; // Particle system for fire effect.
+    [SerializeField] private float fireDuration = 2f;     // Total duration of fire damage.
+    [SerializeField] private float fireTickDamage = 1f;   // Damage per tick from fire.
+    [SerializeField] private int numFireTicks = 2;        // Number of damage ticks during fire.
+    private bool isOnFire = false;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -42,6 +49,10 @@ public class SoldierZombieBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+
+        // Ensure the fire effect is not playing at start.
+        if(fireEffect != null)
+            fireEffect.Stop();
     }
 
     void FixedUpdate()
@@ -106,8 +117,33 @@ public class SoldierZombieBehavior : MonoBehaviour
 
     IEnumerator Flash(float seconds)
     {
-        spriteRenderer.color = Color.Lerp(originalColor, Color.red, 0.5f);
+        spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(seconds);
         spriteRenderer.color = originalColor;
+    }
+
+    // Call this method to set the zombie on fire.
+    public void SetOnFire()
+    {
+        if (!isOnFire)
+        {
+            StartCoroutine(TakeFireDamage(fireDuration));
+        }
+    }
+
+    IEnumerator TakeFireDamage(float seconds)
+    {
+        isOnFire = true;
+        if(fireEffect != null)
+            fireEffect.Play();
+        float tickInterval = seconds / numFireTicks;
+        for (int i = 0; i < numFireTicks; i++)
+        {
+            yield return new WaitForSeconds(tickInterval);
+            TakeDamage(fireTickDamage);
+        }
+        if(fireEffect != null)
+            fireEffect.Stop();
+        isOnFire = false;
     }
 }

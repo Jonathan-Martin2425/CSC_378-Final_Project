@@ -156,6 +156,10 @@ PrefabInstance:
       propertyPath: m_SpriteSortPoint
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: ammoIcon
+      value: 
+      objectReference: {fileID: 1622624976}
     - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: hudStats
       value: 
@@ -563,11 +567,11 @@ PrefabInstance:
     - target: {fileID: 1361110999659824125, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: currentWeapon
       value: 
-      objectReference: {fileID: 1872018489}
+      objectReference: {fileID: 0}
     - target: {fileID: 1361110999659824125, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: 'weapons.Array.data[0]'
       value: 
-      objectReference: {fileID: 1872018489}
+      objectReference: {fileID: 0}
     - target: {fileID: 1361110999659824125, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: 'weapons.Array.data[1]'
       value: 
@@ -939,7 +943,7 @@ PrefabInstance:
     - target: {fileID: 8518619570181669358, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: gun
       value: 
-      objectReference: {fileID: 1872018489}
+      objectReference: {fileID: 0}
     - target: {fileID: 8518619570181669358, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: player
       value: 
@@ -1113,17 +1117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1872018489 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3478397076782405813, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-  m_PrefabInstance: {fileID: 362076404}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b757b2dd4b9cc4cbf343a3f999850e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2104637332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1136,6 +1129,18 @@ PrefabInstance:
       propertyPath: spawnRate
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
+      propertyPath: RegularZombiePrefab
+      value: 
+      objectReference: {fileID: 2625531417755594487, guid: e9e9cf46225b18c4d847d8c8b958ccd8, type: 3}
+    - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
+      propertyPath: soldierZombiePrefab
+      value: 
+      objectReference: {fileID: 2625531417755594487, guid: 80196ab15ea4d4e0b93afa33f1f6a82f, type: 3}
+    - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
+      propertyPath: ConstructionZombiePrefab
+      value: 
+      objectReference: {fileID: 2625531417755594487, guid: 076267cecc151497d95ba2f3db6b4710, type: 3}
     - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: constructionZombiePrefab
       value: 
