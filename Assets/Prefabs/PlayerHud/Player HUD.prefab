@@ -2948,7 +2948,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 70.21, y: 45.21}
+  m_SizeDelta: {x: 70.21, y: 29.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4985962045090425904
 CanvasRenderer:
@@ -2978,7 +2978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8526145758378227075, guid: 44d5070c4e5474c6395bfb1a3aacc800, type: 3}
+  m_Sprite: {fileID: -6387571879772586616, guid: 501bd5f56a63443dfb0907be9dbdbbda, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3628,7 +3628,7 @@ PrefabInstance:
     - target: {fileID: 6186794800843586942, guid: 2ff6ef2e4a7994b988af77b8b5a0d8c9, type: 3}
       propertyPath: 'weaponIcons.Array.data[1]'
       value: 
-      objectReference: {fileID: -8526145758378227075, guid: 44d5070c4e5474c6395bfb1a3aacc800, type: 3}
+      objectReference: {fileID: -6387571879772586616, guid: 501bd5f56a63443dfb0907be9dbdbbda, type: 3}
     - target: {fileID: 6186794800843586942, guid: 2ff6ef2e4a7994b988af77b8b5a0d8c9, type: 3}
       propertyPath: 'weaponIcons.Array.data[2]'
       value: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 44d5070c4e5474c6395bfb1a3aacc800
+guid: 501bd5f56a63443dfb0907be9dbdbbda
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8526145758378227075
-    second: Sniper_Icon_0
+      213: -6387571879772586616
+    second: Sniper_Icon 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sniper_Icon_0
+      name: Sniper_Icon 1_0
       rect:
         serializedVersion: 2
-        x: 208
-        y: 315
-        width: 387
-        height: 174
+        x: 162
+        y: 309
+        width: 636
+        height: 182
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7a89a03b9b0da980800000000000000
-      internalID: -8526145758378227075
+      spriteID: 88d71e8d739ca57a0800000000000000
+      internalID: -6387571879772586616
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sniper_Icon_0: -8526145758378227075
+      Sniper_Icon 1_0: -6387571879772586616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
