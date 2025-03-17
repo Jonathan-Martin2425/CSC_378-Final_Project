@@ -26,6 +26,7 @@ public class InfoPanel : MonoBehaviour
                     {0, "Increased mag size."},
                     {1, "Increased mag size.\nGet second pistol, Akimbo style."},
                     {2, "Pistol now have burst fire."},
+                    {3, "Pistol fully maxed."}
 
                 }
             },
@@ -34,6 +35,7 @@ public class InfoPanel : MonoBehaviour
                     {0, "Sniper 1."},
                     {1, "Sniper 2."},
                     {2, "Sniper 3."},
+                    {3, "Sniper fully maxed."}
                 }
             },
             {2, new Dictionary<int, string>
@@ -41,6 +43,7 @@ public class InfoPanel : MonoBehaviour
                     {0, "Shotgun does knockback."},
                     {1, "More pellets, wider spread."},
                     {2, "Fireeeeee."},
+                    {3, "Shotgun fully maxed."}
                 }
             },
         };
@@ -64,7 +67,7 @@ public class InfoPanel : MonoBehaviour
 
     public void DisplayUpgrades()
     {
-        upgradedText.text = upgradePathsText[currentWeapon.id][currentWeapon.level];
+        upgradedText.text = $" {upgradePathsText[currentWeapon.id][currentWeapon.level]}";
     }
 
     public void UpgradeWeapon()
