@@ -1,9 +1,11 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 
 public class SniperRifle : Gun
 {
     public int pierce = 1;
+    public bool isRailgun = false;
+    public GameObject laserPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +36,21 @@ public class SniperRifle : Gun
 
     private void FireBullet(Vector2 direction)
     {
+        if (isRailgun)
+        {
+            GameObject laser = Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
+            StartCoroutine(LaserFade(laser, 0.2f));
+
+            currentAmmo -= 1;
+
+            if (currentAmmo < 0)
+            {
+                currentAmmo = 0;
+            }
+            
+            return;
+        }
+
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         bullet.GetComponent<DestroyBullet>().SetDamage(bulletDamage);
@@ -50,5 +67,33 @@ public class SniperRifle : Gun
         {
             currentAmmo = 0;
         }
+    }
+    
+    private IEnumerator LaserFade(GameObject laser, float seconds)
+    {
+        SpriteRenderer spriteRenderer = laser.transform.Find("Sprite")
+            .GetComponent<SpriteRenderer>();
+
+        Color originalColor = spriteRenderer.color;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < seconds)
+        {
+            elapsedTime += Time.deltaTime;
+            spriteRenderer.color = new Color(
+                originalColor.r, 
+                originalColor.g,
+                originalColor.b, 
+                Mathf.Lerp(originalColor.a, 0f, elapsedTime / seconds));
+            yield return null;
+        }
+
+        spriteRenderer.color = new Color(
+            originalColor.r, 
+            originalColor.g,
+            originalColor.b, 
+            0f);
+
+        Destroy(laser);
     }
 }
