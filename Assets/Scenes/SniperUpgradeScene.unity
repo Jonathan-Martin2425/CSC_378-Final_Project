@@ -1161,9 +1161,11 @@ MonoBehaviour:
   magSize: 5
   currentAmmo: 5
   isReloading: 0
-  costsPerLevel: c800000090010000
+  costsPerLevel: c8000000900100005802000000000000
   ammoIcon: {fileID: 1622624976}
   pierce: 1
+  isRailgun: 0
+  laserPrefab: {fileID: 2790245235486160800, guid: 58bdef703fb70e54399b7a96a59e8d9b, type: 3}
 --- !u!1001 &2104637332
 PrefabInstance:
   m_ObjectHideFlags: 0

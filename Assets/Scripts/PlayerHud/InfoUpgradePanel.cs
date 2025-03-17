@@ -32,9 +32,9 @@ public class InfoPanel : MonoBehaviour
             },
             {1, new Dictionary<int, string>
                 {
-                    {0, "Sniper 1."},
-                    {1, "Sniper 2."},
-                    {2, "Sniper 3."},
+                    {0, "Increased fire rate."},
+                    {1, "Bullets pierce up to 3 enemies."},
+                    {2, "Railgun with hitscan and infinite pierce."},
                     {3, "Sniper fully upgraded."}
                 }
             },
@@ -150,6 +150,12 @@ public class InfoPanel : MonoBehaviour
                 break;
             case 1:
                 sniper.pierce = 3;
+                levels[currentWeapon.id] += 1;
+                sniper.level += 1;
+
+                break;
+            case 2:
+                sniper.isRailgun = true;
                 levels[currentWeapon.id] += 1;
                 sniper.level += 1;
 
