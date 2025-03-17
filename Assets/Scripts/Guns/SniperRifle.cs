@@ -6,6 +6,8 @@ public class SniperRifle : Gun
     public int pierce = 1;
     public bool isRailgun = false;
     public GameObject laserPrefab;
+    public AudioSource railgunFire;
+    public AudioSource railgunCharge;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,6 +33,10 @@ public class SniperRifle : Gun
             }
 
             StartCoroutine(FireCooldown(1 / fireRate));
+            if (isRailgun && railgunCharge)
+            {
+                railgunCharge.Play();
+            }
         }
     }
 
@@ -41,6 +47,7 @@ public class SniperRifle : Gun
             GameObject laser = Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
             StartCoroutine(LaserFade(laser, 0.2f));
 
+            railgunFire.Play();
             currentAmmo -= 1;
 
             if (currentAmmo < 0)
@@ -50,7 +57,7 @@ public class SniperRifle : Gun
             
             return;
         }
-
+        fireSound.Play();
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         bullet.GetComponent<DestroyBullet>().SetDamage(bulletDamage);

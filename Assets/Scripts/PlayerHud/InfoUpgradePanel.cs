@@ -167,6 +167,7 @@ public class InfoPanel : MonoBehaviour
                 break;
             case 2:
                 sniper.isRailgun = true;
+                sniper.fireRate = 0.6f;
                 levels[currentWeapon.id] += 1;
                 sniper.level += 1;
 

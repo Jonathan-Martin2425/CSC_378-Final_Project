@@ -80,6 +80,8 @@ MonoBehaviour:
   firePoint: {fileID: 707862619994478632}
   bulletPrefab: {fileID: 3746611728287703164, guid: 07d06d472bd6bc14080d16281d891158, type: 3}
   weaponController: {fileID: 0}
+  fireSound: {fileID: 0}
+  reloadSound: {fileID: 0}
   id: 1
   gunName: Sniper Rifle
   fireRate: 1.5
@@ -89,7 +91,9 @@ MonoBehaviour:
   level: 0
   magSize: 5
   currentAmmo: 0
+  isReloading: 0
   costsPerLevel: f401000000000000
+  ammoIcon: {fileID: 0}
 --- !u!1 &7617533312796353389
 GameObject:
   m_ObjectHideFlags: 0
