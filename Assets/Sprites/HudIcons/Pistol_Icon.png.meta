@@ -116,10 +116,10 @@ TextureImporter:
       name: Pistol_Icon_0
       rect:
         serializedVersion: 2
-        x: 291
-        y: 330
-        width: 219
-        height: 141
+        x: 257
+        y: 298
+        width: 346
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Pistol_Icon_0: -5442335278848277292
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
