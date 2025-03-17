@@ -8,7 +8,6 @@ public class WeaponInfoController : MonoBehaviour
 {
     public GameObject sidebar;
     public GameObject infoUpgradePanel;
-    // change this back to false after done testing
     public static bool isPaused = false;
 
     // Update is called once per frame
