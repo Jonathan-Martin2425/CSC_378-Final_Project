@@ -131,6 +131,9 @@ public class InfoPanel : MonoBehaviour
             case 1:
                 pistol.isDual = true;
                 pistol.magSize *= 2;
+                pistol.pistolSprites[0].SetActive(false);
+                pistol.pistolSprites[1].SetActive(true);
+                pistol.pistolSprites[2].SetActive(true);
                 levels[currentWeapon.id] += 1;
                 pistol.level += 1;
                 break;

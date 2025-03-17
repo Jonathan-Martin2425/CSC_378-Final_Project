@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class Pistol : Gun
 {
     [SerializeField] List<Transform> firePoints = new List<Transform>();
+    public List<GameObject> pistolSprites;
     public bool isDual = false;
     public bool hasBurstUpgrade = false;
     private bool canBurst = true;
