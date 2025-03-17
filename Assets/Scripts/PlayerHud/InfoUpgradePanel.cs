@@ -12,6 +12,8 @@ public class InfoPanel : MonoBehaviour
     public TextMeshProUGUI upgradedText;
     public TextMeshProUGUI matsText;
     public Button upgradeButton;
+    public Image weaponDisplay;
+    public List<Sprite> weaponIcons;
     [SerializeField] public PlayerWeaponController playerWeaponController;
     [SerializeField] private PlayerMats mats;
     Gun currentWeapon;
@@ -62,7 +64,13 @@ public class InfoPanel : MonoBehaviour
         " Magazine Capacity: " + currentWeapon.magSize;
         matsText.text = $"Materials Needed: {mats.mats}/{currentWeapon.costsPerLevel[currentWeapon.level]}";
 
+        DisplayWeapon();
         DisplayUpgrades();
+    }
+
+    public void DisplayWeapon()
+    {
+        weaponDisplay.sprite = weaponIcons[currentWeapon.id];
     }
 
     public void DisplayUpgrades()
