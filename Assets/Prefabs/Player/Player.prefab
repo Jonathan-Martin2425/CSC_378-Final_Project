@@ -165,7 +165,7 @@ MonoBehaviour:
   weaponMount: {fileID: 6774392938629287849}
   weapons:
   - {fileID: 1698449754849176511}
-  - {fileID: 5321069969871227170}
+  - {fileID: 3592422146471166718}
   - {fileID: 6774544599459821585}
   currentWeapon: {fileID: 1698449754849176511}
   swapTimer: 1
@@ -607,15 +607,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6774392938629287849}
     m_Modifications:
-    - target: {fileID: 6686658342359416269, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
-      propertyPath: fireSound
-      value: 
-      objectReference: {fileID: 1969544084439262418}
-    - target: {fileID: 6686658342359416269, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
-      propertyPath: reloadSound
-      value: 
-      objectReference: {fileID: 8377221243136456761}
-    - target: {fileID: 6686658342359416269, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
+    - target: {fileID: 2650698574005368337, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 1891223258268923589}
@@ -668,15 +660,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
---- !u!114 &5321069969871227170 stripped
+--- !u!114 &3592422146471166718 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6686658342359416269, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2650698574005368337, guid: b69e643ee64b31a43b7ce761c8dfeae9, type: 3}
   m_PrefabInstance: {fileID: 1518826500631065839}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b757b2dd4b9cc4cbf343a3f999850e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8be80a6d0729fa340b37b717f6d63a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7487042584722824308 stripped

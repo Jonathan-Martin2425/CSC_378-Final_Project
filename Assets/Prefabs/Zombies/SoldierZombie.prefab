@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
@@ -243,7 +243,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6bc7e4015d4091e48944e4c8359164b6, type: 2}
   - {fileID: 11400000, guid: 276ff408aea563d45867e15069e6583f, type: 2}
   - {fileID: 11400000, guid: c5de98a2a01edf64db2097b24b3991e2, type: 2}
-  - {fileID: 11400000, guid: 727d3661f52515845a482006a397f783, type: 2}
 --- !u!1 &3237079642845513754
 GameObject:
   m_ObjectHideFlags: 0

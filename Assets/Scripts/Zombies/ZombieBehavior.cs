@@ -25,6 +25,7 @@ public class ZombieBehavior : MonoBehaviour
     BoxCollider2D attackCollider;
     Color originalColor;
     bool isOnFire = false;
+    bool isDead = false;
 
     void Start()
     {
@@ -117,12 +118,13 @@ public class ZombieBehavior : MonoBehaviour
     {
         StartCoroutine(Flash(0.1f));
         health -= amount;
-        if (health <= 0)
+        if (health <= 0 && !isDead)
             Die();
     }
 
     public void Die()
     {
+        isDead = true;
         GetComponent<DropBag>().DropItem(transform.position);
 
         // Incrememnt Game Score here!!!

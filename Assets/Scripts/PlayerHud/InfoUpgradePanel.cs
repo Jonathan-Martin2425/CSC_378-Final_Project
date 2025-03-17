@@ -167,7 +167,17 @@ public class InfoPanel : MonoBehaviour
                 break;
             case 2:
                 sniper.isRailgun = true;
-                sniper.fireRate = 0.6f;
+
+                //set magsize to 3
+                if(sniper.currentAmmo > 3){
+                    int ammoDiff = sniper.currentAmmo - 3;
+                    playerWeaponController.AddAmmo(ammoDiff, sniper.id);
+                    sniper.currentAmmo = 3;
+                }
+                sniper.magSize = 3;
+
+                sniper.reloadTimeSeconds = 5;
+                sniper.fireRate = 0.33f;
                 levels[currentWeapon.id] += 1;
                 sniper.level += 1;
 
