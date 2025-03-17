@@ -6,7 +6,7 @@ public class DestroyBullet : MonoBehaviour
     [SerializeField] protected float bulletDamage = 1f;
     [SerializeField] protected int level = 0;
     [SerializeField] protected bool isTrigger = false;
-    [SerializeField] private int numPierce = 1;
+    public int numPierce = 1;
 
     public void setLevel(int level){
         this.level = level;
@@ -23,6 +23,7 @@ public class DestroyBullet : MonoBehaviour
         if(zombie != null)
         {
             zombie.TakeDamage(bulletDamage);
+            numPierce -= 1;
         }
         else
         {
@@ -31,11 +32,18 @@ public class DestroyBullet : MonoBehaviour
             if(soldier != null)
             {
                 soldier.TakeDamage(bulletDamage);
+                numPierce -= 1;
             }
         }
-        if(!collision.gameObject.CompareTag("Bullet"))
+        if(!collision.gameObject.CompareTag("Bullet")
+            && numPierce < 1)
         {
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
+
+        if(collision.gameObject.CompareTag("Tower"))
+        {
+            Destroy(gameObject);
         }
     }
 

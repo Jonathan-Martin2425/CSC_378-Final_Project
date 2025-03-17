@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 public class SniperRifle : Gun
 {
-    // [SerializeField] List<Transform> firePoints = new();
-    //[SerializeField] Transform firePoint
+    public int pierce = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +37,7 @@ public class SniperRifle : Gun
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         bullet.GetComponent<DestroyBullet>().SetDamage(bulletDamage);
+        bullet.GetComponent<DestroyBullet>().numPierce = pierce;
 
         if (rb != null)
         {

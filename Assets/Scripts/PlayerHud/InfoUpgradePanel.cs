@@ -133,6 +133,7 @@ public class InfoPanel : MonoBehaviour
 
     void UpgradeSniper(int level)
     {
+        SniperRifle sniper = (SniperRifle)currentWeapon;
         switch(level)
         {
             case 0:
