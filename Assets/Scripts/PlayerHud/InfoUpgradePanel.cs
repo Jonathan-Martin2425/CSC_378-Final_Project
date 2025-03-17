@@ -44,6 +44,11 @@ public class InfoPanel : MonoBehaviour
             },
         };
 
+    void Start()
+    {
+        currentWeapon = playerWeaponController.currentWeapon;
+    }
+
     void OnEnable()
     {
         if (!playerWeaponController)
@@ -51,7 +56,6 @@ public class InfoPanel : MonoBehaviour
         if (!mats)
             mats = GameObject.FindWithTag("Player").GetComponent<PlayerMats>();
 
-        currentWeapon = playerWeaponController.currentWeapon;
         UpdateInfo();
     }
 
