@@ -1161,7 +1161,7 @@ MonoBehaviour:
   magSize: 5
   currentAmmo: 5
   isReloading: 0
-  costsPerLevel: 
+  costsPerLevel: c800000090010000
   ammoIcon: {fileID: 1622624976}
   pierce: 1
 --- !u!1001 &2104637332
