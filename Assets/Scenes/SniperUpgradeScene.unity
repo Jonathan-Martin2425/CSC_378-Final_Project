@@ -169,6 +169,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2024022993313271063, guid: dbbd1ac5712b54ec390c8bb2f8f639cd, type: 3}
     - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: 'weapons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2095811995}
+    - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: 'weaponSlots.Array.data[0]'
       value: 
       objectReference: {fileID: 1582293955}
@@ -268,10 +272,14 @@ PrefabInstance:
       propertyPath: numPellets
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8259940024978136853, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2095811995}
   m_SourcePrefab: {fileID: 100100000, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
 --- !u!1 &539323296
 GameObject:
@@ -448,22 +456,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd69e242adcbb741b0a8b6a6fa297ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1073590031 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8377221243136456761, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+  m_PrefabInstance: {fileID: 362076404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1089452410 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2071974596015041735, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+  m_PrefabInstance: {fileID: 362076404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1155962949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 147604143488716429, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
   m_PrefabInstance: {fileID: 1811532243}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1224785135 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-  m_PrefabInstance: {fileID: 362076404}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b757b2dd4b9cc4cbf343a3f999850e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1264333377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -571,11 +578,11 @@ PrefabInstance:
     - target: {fileID: 1361110999659824125, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: 'weapons.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2116355517}
     - target: {fileID: 1361110999659824125, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: 'weapons.Array.data[1]'
       value: 
-      objectReference: {fileID: 1224785135}
+      objectReference: {fileID: 2095811995}
     - target: {fileID: 1361110999659824125, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: 'weapons.Array.data[2]'
       value: 
@@ -907,7 +914,7 @@ PrefabInstance:
     - target: {fileID: 7946279763359358867, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: gun
       value: 
-      objectReference: {fileID: 1224785135}
+      objectReference: {fileID: 0}
     - target: {fileID: 7946279763359358867, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
       propertyPath: player
       value: 
@@ -1106,6 +1113,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
+--- !u!82 &1824978238 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1969544084439262418, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+  m_PrefabInstance: {fileID: 362076404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1861252470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8969696238923066206, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
@@ -1117,6 +1129,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2095811993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8259940024978136853, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+  m_PrefabInstance: {fileID: 362076404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2095811995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095811993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be80a6d0729fa340b37b717f6d63a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1089452410}
+  bulletPrefab: {fileID: 3746611728287703164, guid: 07d06d472bd6bc14080d16281d891158, type: 3}
+  weaponController: {fileID: 670807149}
+  fireSound: {fileID: 1824978238}
+  reloadSound: {fileID: 1073590031}
+  id: 1
+  gunName: Sniper Rifle
+  fireRate: 1
+  bulletSpeed: 20
+  bulletDamage: 3
+  reloadTimeSeconds: 2
+  level: 0
+  magSize: 5
+  currentAmmo: 5
+  isReloading: 0
+  costsPerLevel: c800000090010000
+  ammoIcon: {fileID: 1622624976}
+  pierce: 1
 --- !u!1001 &2104637332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1139,10 +1186,6 @@ PrefabInstance:
       objectReference: {fileID: 2625531417755594487, guid: 80196ab15ea4d4e0b93afa33f1f6a82f, type: 3}
     - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: ConstructionZombiePrefab
-      value: 
-      objectReference: {fileID: 2625531417755594487, guid: 076267cecc151497d95ba2f3db6b4710, type: 3}
-    - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
-      propertyPath: constructionZombiePrefab
       value: 
       objectReference: {fileID: 2625531417755594487, guid: 076267cecc151497d95ba2f3db6b4710, type: 3}
     - target: {fileID: 3496107128932779586, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
@@ -1194,6 +1237,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
+--- !u!114 &2116355517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+  m_PrefabInstance: {fileID: 362076404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434e396e95c52461db5837c2da145535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2133113084 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3564498765869391195, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}

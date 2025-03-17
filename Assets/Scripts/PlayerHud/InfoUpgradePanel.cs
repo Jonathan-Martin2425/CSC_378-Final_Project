@@ -136,15 +136,24 @@ public class InfoPanel : MonoBehaviour
 
     void UpgradeSniper(int level)
     {
+        SniperRifle sniper = (SniperRifle)currentWeapon;
         switch(level)
         {
             case 0:
+                sniper.fireRate = 1.5f;
                 levels[currentWeapon.id] += 1;
-                currentWeapon.level += 1;
+                sniper.level += 1;
+
+                break;
+            case 1:
+                sniper.pierce = 3;
+                levels[currentWeapon.id] += 1;
+                sniper.level += 1;
 
                 break;
             default:
                 Debug.Log("Sniper fully upgraded");
+
                 break;
         }
     }
