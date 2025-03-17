@@ -2,10 +2,22 @@ using UnityEngine;
 
 public class ZombieManager : MonoBehaviour
 {
-    [SerializeField] GameObject zombiePrefab;
+    [Header("Zombie Prefabs")]
+    [SerializeField] GameObject RegularZombiePrefab;          // Regular zombie prefab
+    [SerializeField] GameObject ConstructionZombiePrefab;         // Construction zombie prefab
+    [SerializeField] GameObject soldierZombiePrefab;        // Soldier zombie prefab
+
+    [Header("Spawn Settings")]
     [SerializeField] float spawnRate = 5f;
     [SerializeField] Vector2 innerBound = new Vector2(40f, 20f);
     [SerializeField] Vector2 outerBound = new Vector2(50f, 30f);
+
+    [Header("Spawn Chances")]
+    [Range(0f, 1f)]
+    [SerializeField] float ConstructionSpawnChance = 0.2f;        // Chance for a Construction zombie.
+    [Range(0f, 1f)]
+    [SerializeField] float soldierSpawnChance = 0.1f;       // Chance for a soldier zombie.
+
     static ZombieManager _instance;
 
     public static ZombieManager Instance
@@ -23,7 +35,7 @@ public class ZombieManager : MonoBehaviour
             }
             return _instance;
         }
-    }  
+    }
 
     private void Awake()
     {
@@ -41,14 +53,29 @@ public class ZombieManager : MonoBehaviour
 
     void Spawn()
     {
-        GameObject zombie = Instantiate(zombiePrefab, GetSpawnPosition(), transform.rotation);
+        GameObject prefabToSpawn = RegularZombiePrefab; // Default to regular zombie.
+        float roll = Random.value; // Random value between 0 and 1.
+
+        // Check soldier spawn chance first.
+        if (roll < soldierSpawnChance)
+        {
+            prefabToSpawn = soldierZombiePrefab;
+        }
+        // If not soldier, check for Construction.
+        else if (roll < soldierSpawnChance + ConstructionSpawnChance)
+        {
+            prefabToSpawn = ConstructionZombiePrefab;
+        }
+        // Otherwise, default remains Regular.
+
+        Instantiate(prefabToSpawn, GetSpawnPosition(), transform.rotation);
     }
 
     Vector3 GetSpawnPosition()
     {
-        Vector3 spawnPosition = new Vector3(0, 0, 0);
-        float randChoice1 = Random.Range(-1, 1);
-        float randChoice2 = Random.Range(-1, 1);
+        Vector3 spawnPosition = Vector3.zero;
+        float randChoice1 = Random.Range(-1f, 1f);
+        float randChoice2 = Random.Range(-1f, 1f);
 
         if (randChoice1 >= 0)
         {

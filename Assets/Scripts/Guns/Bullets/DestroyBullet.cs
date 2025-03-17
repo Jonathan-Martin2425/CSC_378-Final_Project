@@ -19,22 +19,23 @@ public class DestroyBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Zombie") && !isTrigger)
+        var zombie = collision.gameObject.GetComponent<ZombieBehavior>();
+        if(zombie != null)
         {
-            collision.gameObject.GetComponent<ZombieBehavior>()
-                .TakeDamage(bulletDamage);
-                numPierce -= 1;
+            zombie.TakeDamage(bulletDamage);
         }
-
-        if(!collision.gameObject.CompareTag("Bullet")
-            && numPierce < 1)
+        else
         {
-            Destroy(gameObject);
+            // If not, try SoldierZombieBehavior.
+            var soldier = collision.gameObject.GetComponent<SoldierZombieBehavior>();
+            if(soldier != null)
+            {
+                soldier.TakeDamage(bulletDamage);
+            }
         }
-
-        if(collision.gameObject.CompareTag("Tower"))
+        if(!collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+        Destroy(gameObject);
         }
     }
 

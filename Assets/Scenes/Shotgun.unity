@@ -170,9 +170,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1590293030119643929, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
+    - target: {fileID: 11796609219908794, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11796609219908794, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: ammoIcon
@@ -198,9 +202,13 @@ PrefabInstance:
       propertyPath: 'weaponSlots.Array.data[2]'
       value: 
       objectReference: {fileID: 4598692031794711281}
-    - target: {fileID: 1969544084439262418, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Volume
-      value: 0.75
+    - target: {fileID: 2787365954691064896, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2787365954691064896, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3416523600730283456, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_LocalPosition.x
@@ -242,9 +250,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3522316478883521896, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522316478883521896, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743866025408519260, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743866025408519260, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3824777238965424877, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081596918341878785, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705395914329007101, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: ammoIcon
@@ -258,6 +290,10 @@ PrefabInstance:
       propertyPath: reloadSound
       value: 
       objectReference: {fileID: 223845776}
+    - target: {fileID: 5495951846281464811, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 6210820162015045980, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: tower
       value: 
@@ -266,10 +302,22 @@ PrefabInstance:
       propertyPath: ammoIcon
       value: 
       objectReference: {fileID: 935496546}
-    - target: {fileID: 6774544599459821585, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: reloadSound
+    - target: {fileID: 7664963717427519860, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 223845776}
+      objectReference: {fileID: 1275589539659018210, guid: 77d6739ce932ab54196bee9ad1f75c93, type: 3}
+    - target: {fileID: 7664963717427519860, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664963717427519860, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664963717427519860, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

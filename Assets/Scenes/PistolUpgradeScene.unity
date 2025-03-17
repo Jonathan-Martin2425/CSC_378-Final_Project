@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &128452477 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6525661910479703924, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
+  m_PrefabInstance: {fileID: 876783085}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &283311601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7271830656970046593, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
@@ -482,17 +487,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1622624976}
     - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
+      propertyPath: dualSound
+      value: 
+      objectReference: {fileID: 128452477}
+    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
       propertyPath: weaponController
       value: 
       objectReference: {fileID: 670807149}
-    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[1]'
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278545314072059328, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[2]'
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 1720415387028916988, guid: a54f9f32c939c4047afcb6461d783af9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1200,7 +1201,7 @@ PrefabInstance:
       objectReference: {fileID: 1861252470}
     - target: {fileID: 8196836511509466566, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
       propertyPath: maxHealth
-      value: 300
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 8196836511509466566, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
       propertyPath: towerHealthTMP
