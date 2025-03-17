@@ -9,6 +9,7 @@ public class InfoPanel : MonoBehaviour
 {
     public Gun[] weapons;
     public TextMeshProUGUI infoText;
+    public TextMeshProUGUI upgradedText;
     public TextMeshProUGUI matsText;
     public Button upgradeButton;
     [SerializeField] public PlayerWeaponController playerWeaponController;
@@ -23,8 +24,9 @@ public class InfoPanel : MonoBehaviour
             {0, new Dictionary<int, string>
                 {
                     {0, "Increased mag size."},
-                    {1, "Increased mag size. Get second pistol, Akimbo style."},
+                    {1, "Increased mag size.\nGet second pistol, Akimbo style."},
                     {2, "Pistol now have burst fire."},
+                    {3, "Pistol fully upgraded."}
 
                 }
             },
@@ -33,6 +35,7 @@ public class InfoPanel : MonoBehaviour
                     {0, "Increased fire rate."},
                     {1, "Bullets pierce up to 3 enemies."},
                     {2, "Railgun with hitscan and infinite pierce."},
+                    {3, "Sniper fully upgraded."}
                 }
             },
             {2, new Dictionary<int, string>
@@ -40,18 +43,14 @@ public class InfoPanel : MonoBehaviour
                     {0, "Shotgun does knockback."},
                     {1, "More pellets, wider spread."},
                     {2, "Fireeeeee."},
+                    {3, "Shotgun fully upgraded."}
                 }
             },
         };
 
-    void OnEnable()
+    void Start()
     {
-        if (!playerWeaponController)
-            playerWeaponController = GameObject.FindWithTag("Player").GetComponent<PlayerWeaponController>();
-        if (!mats)
-            mats = GameObject.FindWithTag("Player").GetComponent<PlayerMats>();
-
-        currentWeapon = playerWeaponController.currentWeapon;
+        currentWeapon = weapons[0];
         UpdateInfo();
     }
 
@@ -62,6 +61,13 @@ public class InfoPanel : MonoBehaviour
         " Reload Speed: " + currentWeapon.reloadTimeSeconds + "\n" + 
         " Magazine Capacity: " + currentWeapon.magSize;
         matsText.text = $"Materials Needed: {mats.mats}/{currentWeapon.costsPerLevel[currentWeapon.level]}";
+
+        DisplayUpgrades();
+    }
+
+    public void DisplayUpgrades()
+    {
+        upgradedText.text = $" {upgradePathsText[currentWeapon.id][currentWeapon.level]}";
     }
 
     public void UpgradeWeapon()
