@@ -26,7 +26,7 @@ public class InfoPanel : MonoBehaviour
             {0, new Dictionary<int, string>
                 {
                     {0, "Increased mag size."},
-                    {1, "Increased mag size.\nGet second pistol, Akimbo style."},
+                    {1, "Increased mag size.\n Get second pistol, Akimbo style."},
                     {2, "Pistol now have burst fire."},
                     {3, "Pistol fully upgraded."}
 
