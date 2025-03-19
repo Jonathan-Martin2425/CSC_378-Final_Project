@@ -110,7 +110,7 @@ public class Pistol : Gun
             fireSound.Play();
         }
 
-        if (currentAmmo < 0)
+        if (currentAmmo < 0 && weaponController.reservedAmmo[id] > 0)
         {
             currentAmmo = 0;
         }

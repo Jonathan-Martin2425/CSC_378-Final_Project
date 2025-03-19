@@ -53,10 +53,7 @@ public class Gun : MonoBehaviour
         if (!weaponController)
             weaponController = GetComponent<PlayerWeaponController>();
         onCooldown = false;
-        if (currentAmmo == 0)
-        {
-            Reload();
-        }
+        isReloading = false;
     }
 
     public virtual void Fire(Vector2 direction)
@@ -75,7 +72,7 @@ public class Gun : MonoBehaviour
                 rb.linearVelocity = direction * bulletSpeed;
             }
 
-            if (currentAmmo <= 0)
+            if (currentAmmo <= 0 && weaponController.reservedAmmo[id] > 0)
             {
                 Reload();
             }

@@ -189,8 +189,8 @@ public class InfoPanel : MonoBehaviour
                 }
                 sniper.magSize = 3;
 
-                sniper.reloadTimeSeconds = 5;
-                sniper.fireRate = 0.33f;
+                sniper.reloadTimeSeconds = 3;
+                sniper.fireRate = 1/2.5f;
                 levels[currentWeapon.id] += 1;
                 sniper.level += 1;
 
@@ -212,7 +212,7 @@ public class InfoPanel : MonoBehaviour
                 shotgun.level += 1;
                 break;
             case 1:
-                shotgun.spread = 90f;
+                shotgun.spread = 45f;
                 shotgun.numPellets = 8;
                 levels[currentWeapon.id] += 1;
                 shotgun.level += 1;

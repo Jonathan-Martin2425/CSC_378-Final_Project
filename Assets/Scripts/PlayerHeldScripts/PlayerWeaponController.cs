@@ -22,7 +22,7 @@ public class PlayerWeaponController : MonoBehaviour
     public int reservedSniperAmmo = 5;
     public int reservedShotgunAmmo = 8;
 
-    private List<int> reservedAmmo = new List<int>();
+    public List<int> reservedAmmo = new List<int>();
 
     [Header("Gun UI")]
     public GameObject[] weaponSlots;
@@ -66,7 +66,9 @@ public class PlayerWeaponController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            currentWeapon.Fire(worldPoint2D);
+            if(!currentWeapon.isReloading){
+                currentWeapon.Fire(worldPoint2D);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -91,6 +93,7 @@ public class PlayerWeaponController : MonoBehaviour
         {
             weapons[currentWeapon.id].gameObject.SetActive(false);
             weapons[gunID].gameObject.SetActive(true);
+            weapons[gunID].ammoIcon.rotation = Quaternion.identity;
             HighlightButton(gunID);
             currentWeapon = weapons[gunID];
             StartCoroutine(SwapCooldown(swapTimer));
@@ -222,7 +225,7 @@ public class PlayerWeaponController : MonoBehaviour
     }
 
     void OnReload(){
-        if (!currentWeapon.isReloading && currentWeapon.currentAmmo != currentWeapon.magSize)
+        if (!currentWeapon.isReloading && currentWeapon.currentAmmo != currentWeapon.magSize && reservedAmmo[currentWeapon.id] > 0)
         {
             if(currentWeapon.GetType().Equals(typeof(Shotgun))){
                 Shotgun gun = (Shotgun)currentWeapon;

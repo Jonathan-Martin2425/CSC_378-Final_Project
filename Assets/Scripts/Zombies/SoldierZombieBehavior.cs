@@ -6,6 +6,7 @@ public class SoldierZombieBehavior : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform target;       // Tower's transform.
     private TowerHealth towerHealth;                   // Reference to the TowerHealth script.
+    ZombieManager manager; // used to decrement totalZombie counter when it dies
 
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 1f;
@@ -26,6 +27,7 @@ public class SoldierZombieBehavior : MonoBehaviour
     [SerializeField] private float fireTickDamage = 1f;   // Damage per tick from fire.
     [SerializeField] private int numFireTicks = 2;        // Number of damage ticks during fire.
     private bool isOnFire = false;
+    bool isDead = false;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -49,6 +51,8 @@ public class SoldierZombieBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+
+        manager = GameObject.FindWithTag("GameController").GetComponent<ZombieManager>();
 
         // Ensure the fire effect is not playing at start.
         if(fireEffect != null)
@@ -103,7 +107,7 @@ public class SoldierZombieBehavior : MonoBehaviour
     {
         StartCoroutine(Flash(0.1f));
         health -= amount;
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die();
         }
@@ -111,7 +115,13 @@ public class SoldierZombieBehavior : MonoBehaviour
 
     void Die()
     {
+        isDead = true;
+        GetComponent<DropBag>().DropItem(transform.position);
+
+        // Incrememnt Game Score here!!!
         GameObject.FindWithTag("UI").GetComponent<HudStats>().UpdateScore(scoreVal);
+
+        manager.numZombiesAlive--;
         Destroy(gameObject);
     }
 

@@ -40,7 +40,7 @@ public class Shotgun : Gun
             fireSound.Play();
             pumpSound.PlayDelayed(pumpDelay);
 
-            if (currentAmmo == 0)
+            if (currentAmmo == 0 && weaponController.reservedAmmo[id] > 0)
             {
                 Reload(bulletsPerReload);
             }

@@ -27,7 +27,7 @@ public class SniperRifle : Gun
         {
             FireBullet(direction);
             
-            if (currentAmmo <= 0)
+            if (currentAmmo <= 0 && weaponController.reservedAmmo[id] > 0)
             {
                 Reload();
             }

@@ -5,6 +5,7 @@ public class ZombieBehavior : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Transform target;  
+    [SerializeField] ZombieManager manager;  
     [Header("Attributes")]
     [SerializeField] float attackRange = 2f;
     [SerializeField] float attackDamage = 10f;
@@ -38,6 +39,7 @@ public class ZombieBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         originalColor = spriteRenderer.color;
 
+        manager = GameObject.FindWithTag("GameController").GetComponent<ZombieManager>();
         fireEffect.Stop();
     }
 
@@ -130,6 +132,7 @@ public class ZombieBehavior : MonoBehaviour
         // Incrememnt Game Score here!!!
         GameObject.FindWithTag("UI").GetComponent<HudStats>().UpdateScore(scoreVal);
 
+        manager.numZombiesAlive--;
         Destroy(gameObject);
     }
 
