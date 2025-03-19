@@ -1121,21 +1121,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
-      propertyPath: curRound
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: rounds.Array.size
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
-      propertyPath: 'rounds.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0eb9e596a9a310d44ac1edeaf417f4ef, type: 2}
-    - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
-      propertyPath: 'rounds.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0e027999ca64e3546b9b3e4312330252, type: 2}
     - target: {fileID: 321479877924059940, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: 'rounds.Array.data[2]'
       value: 
@@ -1175,10 +1163,6 @@ PrefabInstance:
     - target: {fileID: 3496107128932779586, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: m_Name
       value: ZombieManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3496107128932779586, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
-      propertyPath: m_TagString
-      value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 7147467425048433411, guid: be972d31ffeb05748937dc7b76d012e6, type: 3}
       propertyPath: m_LocalPosition.x
