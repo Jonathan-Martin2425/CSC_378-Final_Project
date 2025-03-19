@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01d3565e4d6ecb641ab622fffef03ce7, type: 3}
-  m_Name: Round 3
+  m_Name: Round 5(Soilder Round)
   m_EditorClassIdentifier: 
   zombiePrefabs:
-  - {fileID: 2625531417755594487, guid: 076267cecc151497d95ba2f3db6b4710, type: 3}
-  zombieAmmounts: 05000000
-  roundTimer: 30
-  startDelay: 5
+  - {fileID: 2625531417755594487, guid: 80196ab15ea4d4e0b93afa33f1f6a82f, type: 3}
+  zombieAmmounts: 08000000
+  roundTimer: 20
+  startDelay: 10

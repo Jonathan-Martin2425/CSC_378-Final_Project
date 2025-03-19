@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 321479877924059940}
   m_Layer: 0
   m_Name: ZombieManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4758ab2e624729b448d5ed32ec364be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombiePrefab: {fileID: 2625531417755594487, guid: e9e9cf46225b18c4d847d8c8b958ccd8, type: 3}
-  spawnRate: 3
+  rounds:
+  - {fileID: 11400000, guid: 0eb9e596a9a310d44ac1edeaf417f4ef, type: 2}
+  - {fileID: 11400000, guid: 0e027999ca64e3546b9b3e4312330252, type: 2}
+  - {fileID: 11400000, guid: 0521033b11353be4dac1baabd4df1c87, type: 2}
+  - {fileID: 11400000, guid: bf28c67e8db1d0a428c09bd8097e4576, type: 2}
+  - {fileID: 11400000, guid: c0edb9a5282b78f4a931c2417e0f3cc5, type: 2}
+  - {fileID: 11400000, guid: 2e85c9f576463504bbb840c33316bdf3, type: 2}
+  curRound: 0
   innerBound: {x: 20, y: 10}
   outerBound: {x: 25, y: 20}
+  curRoundTime: 0
+  numZombiesAlive: 0
+  startDelay: 1
