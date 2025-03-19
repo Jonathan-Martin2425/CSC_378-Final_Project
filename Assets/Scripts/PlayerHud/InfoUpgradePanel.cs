@@ -3,23 +3,25 @@ using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 using System.Collections.Generic;
+using System.Collections;
 using System.Reflection;
 
 public class InfoPanel : MonoBehaviour
 {
+    [Header("Weapon Objects")]
     public Gun[] weapons;
+    Gun currentWeapon;
+    public List<Sprite> weaponIcons;
+    [Header("UI Elements")]
     public TextMeshProUGUI infoText;
     public TextMeshProUGUI upgradedText;
     public TextMeshProUGUI matsText;
     public Button upgradeButton;
     public Image weaponDisplay;
-    public List<Sprite> weaponIcons;
+    [Header("Player Elements")]
     [SerializeField] public PlayerWeaponController playerWeaponController;
     [SerializeField] private PlayerMats mats;
-    Gun currentWeapon;
     private int[] levels = new int[4];
-    
-    // {weaponId = {weaponLevel = {fieldName = upgradeValue}}}
     private Dictionary<int, Dictionary<int,string>> upgradePathsText =
         new()
         {
@@ -56,6 +58,11 @@ public class InfoPanel : MonoBehaviour
         UpdateInfo();
     }
 
+    void OnEnable()
+    {
+        StartCoroutine(DelayUpdateInfo());
+    }
+
     public void UpdateInfo()
     {
         infoText.text =  " Damage: " + currentWeapon.bulletDamage + "\n" + 
@@ -66,6 +73,12 @@ public class InfoPanel : MonoBehaviour
 
         DisplayWeapon();
         DisplayUpgrades();
+    }
+
+    private IEnumerator DelayUpdateInfo()
+    {
+        yield return null;
+        UpdateInfo();
     }
 
     public void DisplayWeapon()
@@ -217,6 +230,12 @@ public class InfoPanel : MonoBehaviour
     public void SelectWeapon(int id)
     {
         currentWeapon = weapons[id];
+        UpdateInfo();
+    }
+
+    public void ClickTowerRepair()
+    {
+        GameObject.FindWithTag("Tower").GetComponent<TowerHealth>().RepairTower();
         UpdateInfo();
     }
 }

@@ -7,11 +7,16 @@ public class TowerHealth : MonoBehaviour
     [Header("Tower Health Settings")]
     [SerializeField] private float maxHealth = 100;
     private float currentHealth;
+    [SerializeField] private float repairAmount = 20f;
+    [SerializeField] private int repairCost = 50;
 
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI towerHealthTMP; 
     
-    [SerializeField] private TextMeshProUGUI scoreTMP; 
+    [SerializeField] private TextMeshProUGUI scoreTMP;
+    [Header("Player Material Elements")]
+    [SerializeField] private PlayerMats mats;
+    
 
     private void Start()
     {
@@ -36,6 +41,31 @@ public class TowerHealth : MonoBehaviour
                 PlayerPrefs.SetInt("FinalScore", score);
             }
         SceneManager.LoadScene("GameOver");
+        }
+    }
+
+    public void RepairTower()
+    {
+        if (mats.mats < repairCost)
+        {
+            Debug.Log("Not enough materials to repair tower");
+            return;
+        }
+        
+        if (currentHealth != maxHealth)
+        {
+            currentHealth += repairAmount;
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+            mats.mats -= repairCost;
+            UpdateTowerHealthUI();
+            Debug.Log("Upgraded tower");
+        }
+        else
+        {
+            Debug.Log("Tower already at max health");
         }
     }
 
