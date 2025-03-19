@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d3565e4d6ecb641ab622fffef03ce7, type: 3}
+  m_Name: Round 5
+  m_EditorClassIdentifier: 
+  zombiePrefabs:
+  - {fileID: 2625531417755594487, guid: e9e9cf46225b18c4d847d8c8b958ccd8, type: 3}
+  - {fileID: 2625531417755594487, guid: 076267cecc151497d95ba2f3db6b4710, type: 3}
+  - {fileID: 2625531417755594487, guid: 80196ab15ea4d4e0b93afa33f1f6a82f, type: 3}
+  zombieAmmounts: 020000000200000003000000
+  roundTimer: 45
+  startDelay: 10
