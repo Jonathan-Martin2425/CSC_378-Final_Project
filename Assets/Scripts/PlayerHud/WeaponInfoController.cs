@@ -19,7 +19,7 @@ public class WeaponInfoController : MonoBehaviour
         }
     }
 
-    void ToggleInfoScreen()
+    public void ToggleInfoScreen()
     {
         isPaused = !isPaused;
 
