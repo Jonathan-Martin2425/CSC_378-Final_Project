@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class TowerHealth : MonoBehaviour
 {
@@ -16,11 +17,17 @@ public class TowerHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreTMP;
     [Header("Player Material Elements")]
     [SerializeField] private PlayerMats mats;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    private AudioSource hitSound;
     
 
     private void Start()
     {
         currentHealth = maxHealth;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+        hitSound = GetComponent<AudioSource>();
         UpdateTowerHealthUI();
     }
 
@@ -28,6 +35,8 @@ public class TowerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
+        StartCoroutine(Flash(0.1f));
+        hitSound.Play();
         UpdateTowerHealthUI();
 
         if (currentHealth <= 0) {
@@ -42,6 +51,13 @@ public class TowerHealth : MonoBehaviour
             }
         SceneManager.LoadScene("GameOver");
         }
+    }
+
+    IEnumerator Flash(float seconds)
+    {
+        spriteRenderer.color = Color.Lerp(originalColor, Color.red, 0.5f);
+        yield return new WaitForSeconds(seconds);
+        spriteRenderer.color = originalColor;
     }
 
     public void RepairTower()
