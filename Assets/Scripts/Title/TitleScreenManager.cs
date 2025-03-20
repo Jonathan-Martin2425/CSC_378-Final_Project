@@ -8,9 +8,13 @@ public class TitleScreenManager : MonoBehaviour
         SceneManager.LoadScene("Main"); 
     }
 
-    // Called by the Credits button
     public void OnCreditsButtonPressed()
     {
-        // SceneManager.LoadScene("CreditsScene"); 
+        SceneManager.LoadScene("Credits"); 
+    }
+
+    public void OnBackButtonPressed()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }
