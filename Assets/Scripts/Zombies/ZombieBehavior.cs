@@ -27,6 +27,7 @@ public class ZombieBehavior : MonoBehaviour
     Color originalColor;
     bool isOnFire = false;
     bool isDead = false;
+    public AudioSource zombieDeathSound;
 
     void Start()
     {
@@ -121,7 +122,10 @@ public class ZombieBehavior : MonoBehaviour
         StartCoroutine(Flash(0.1f));
         health -= amount;
         if (health <= 0 && !isDead)
+        {
+            Instantiate(zombieDeathSound);
             Die();
+        }
     }
 
     public void Die()
@@ -161,4 +165,9 @@ public class ZombieBehavior : MonoBehaviour
         isOnFire = false;
 
     }
+
+    // IEnumerator PlayDeathSound()
+    // {
+        
+    // }
 }

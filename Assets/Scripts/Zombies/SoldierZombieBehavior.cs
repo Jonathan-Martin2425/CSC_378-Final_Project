@@ -33,6 +33,7 @@ public class SoldierZombieBehavior : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private float damageTimer = 0f;
+    public AudioSource zombieDeathSound;
 
     void Start()
     {
@@ -109,12 +110,14 @@ public class SoldierZombieBehavior : MonoBehaviour
         health -= amount;
         if (health <= 0 && !isDead)
         {
+            Instantiate(zombieDeathSound);
             Die();
         }
     }
 
     void Die()
     {
+        
         isDead = true;
         GetComponent<DropBag>().DropItem(transform.position);
 
@@ -122,6 +125,8 @@ public class SoldierZombieBehavior : MonoBehaviour
         GameObject.FindWithTag("UI").GetComponent<HudStats>().UpdateScore(scoreVal);
 
         manager.numZombiesAlive--;
+        
+        Debug.Log("Soldier Zombie Die");
         Destroy(gameObject);
     }
 

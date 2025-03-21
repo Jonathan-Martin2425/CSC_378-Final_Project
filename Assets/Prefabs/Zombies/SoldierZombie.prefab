@@ -226,6 +226,7 @@ MonoBehaviour:
   fireDuration: 2
   fireTickDamage: 1
   numFireTicks: 2
+  zombieDeathSound: {fileID: 4822096756154534921, guid: 778d545fe80601245b45928c9b31ebd2, type: 3}
 --- !u!114 &4485525990462956517
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -105,6 +105,7 @@ MonoBehaviour:
   magnetRange: 4.11
   speed: 0.68
   dropForce: 520
+  itemGetSound: {fileID: 2335058487190025174, guid: db26e648ae190c34c8c37c7fa5de031b, type: 3}
 --- !u!50 &8752698893906534335
 Rigidbody2D:
   serializedVersion: 5

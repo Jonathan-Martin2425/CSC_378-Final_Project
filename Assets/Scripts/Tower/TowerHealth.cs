@@ -19,7 +19,7 @@ public class TowerHealth : MonoBehaviour
     [SerializeField] private PlayerMats mats;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-    private AudioSource hitSound;
+    public AudioSource hitSound;
     
 
     private void Start()
@@ -27,7 +27,7 @@ public class TowerHealth : MonoBehaviour
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-        hitSound = GetComponent<AudioSource>();
+        //hitSound = GetComponent<AudioSource>();
         UpdateTowerHealthUI();
     }
 

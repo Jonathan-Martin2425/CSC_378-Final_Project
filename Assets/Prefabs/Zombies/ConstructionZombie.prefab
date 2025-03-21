@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  manager: {fileID: 0}
   attackRange: 1
   attackDamage: 4
   attackLength: 0.3
@@ -227,6 +228,7 @@ MonoBehaviour:
   fireTickDamage: 1
   numFireTicks: 2
   fireEffect: {fileID: 2887934375227136961}
+  zombieDeathSound: {fileID: 4822096756154534921, guid: 778d545fe80601245b45928c9b31ebd2, type: 3}
 --- !u!114 &4485525990462956517
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class DropBehavior : MonoBehaviour
     float playerDistance;
     int dropCount;
     int id;
+    public AudioSource itemGetSound;
 
     void Update()
     {
@@ -45,6 +46,7 @@ public class DropBehavior : MonoBehaviour
                 other.GetComponent<PlayerMats>().AddMats(dropCount);
             else
                 other.GetComponent<PlayerWeaponController>().AddAmmo(dropCount, id);
+            Instantiate(itemGetSound);
             Destroy(gameObject);
         }
     }
