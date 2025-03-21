@@ -4,33 +4,33 @@ using System.Collections;
 public class ZombieBehavior : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Transform target;  
-    [SerializeField] ZombieManager manager;  
+    [SerializeField] protected Transform target;  
+    [SerializeField] protected ZombieManager manager;  
     [Header("Attributes")]
-    [SerializeField] float attackRange = 2f;
-    [SerializeField] float attackDamage = 10f;
-    [SerializeField] float attackLength = 0.3f;
-    [SerializeField] float attackDelay = 1f;
-    [SerializeField] float movementSpeed = 1f;
-    [SerializeField] float acceleration = 5f;
-    [SerializeField] float health = 3f;
-    [SerializeField] float scoreVal = 10f;
-    [SerializeField] float fireDuration = 2f;
-    [SerializeField] float fireTickDamage = 1f;
-    [SerializeField] int numFireTicks = 2;
-    [SerializeField] ParticleSystem fireEffect;
-    private SpriteRenderer spriteRenderer;
-    private Rigidbody2D rb;
-    bool isAttacking = false;
-    float distance = 0f;
-    BoxCollider2D attackCollider;
-    Color originalColor;
-    bool isOnFire = false;
-    bool isDead = false;
+    [SerializeField] protected float attackRange = 2f;
+    [SerializeField] protected float attackDamage = 10f;
+    [SerializeField] protected float attackLength = 0.3f;
+    [SerializeField] protected float attackDelay = 1f;
+    [SerializeField] protected float movementSpeed = 1f;
+    [SerializeField] protected float acceleration = 5f;
+    [SerializeField] protected float health = 3f;
+    [SerializeField] protected float scoreVal = 10f;
+    [SerializeField] protected float fireDuration = 2f;
+    [SerializeField] protected float fireTickDamage = 1f;
+    [SerializeField] protected int numFireTicks = 2;
+    [SerializeField] protected ParticleSystem fireEffect;
+    protected SpriteRenderer spriteRenderer;
+    protected Rigidbody2D rb;
+    protected bool isAttacking = false;
+    protected float distance = 0f;
+    protected BoxCollider2D attackCollider;
+    protected Color originalColor;
+    protected bool isOnFire = false;
+    protected bool isDead = false;
     public AudioSource zombieDeathSound;
     public AudioSource zombieHitSound;
 
-    void Start()
+    protected virtual void Start()
     {
         if (target == null)
             target = GameObject.FindWithTag("Tower").transform;
@@ -46,7 +46,7 @@ public class ZombieBehavior : MonoBehaviour
     }
 
     // to prevent insane knockback
-    void Update()
+    protected virtual void Update()
     {
         if(rb.linearVelocity.magnitude > movementSpeed){
             Vector3 direction = rb.linearVelocity.normalized;
@@ -54,7 +54,7 @@ public class ZombieBehavior : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (isAttacking) return;
 
@@ -64,19 +64,19 @@ public class ZombieBehavior : MonoBehaviour
             Move();
     }
     
-    bool targetInRange()
+    protected bool targetInRange()
     {
         if (target == null) return false;
         distance = Vector3.Distance(transform.position, target.position);
         return distance <= attackRange;
     }
 
-    void Attack()
+    protected void Attack()
     {
         StartCoroutine(AttackRoutine());
     }
 
-    IEnumerator AttackRoutine()
+    protected IEnumerator AttackRoutine()
     {
         isAttacking = true;
         attackCollider.enabled = true;
@@ -87,7 +87,7 @@ public class ZombieBehavior : MonoBehaviour
         isAttacking = false;
     }
 
-    void Move()
+    protected virtual void Move()
     {
         //Debug.Log("Zombie is moving");
         if (target == null) return;
@@ -105,7 +105,7 @@ public class ZombieBehavior : MonoBehaviour
         rb.AddForce(direction * acceleration * rb.mass); // mass normalizes knockback
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    protected virtual void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Tower") && !isAttacking)
         {
@@ -118,7 +118,7 @@ public class ZombieBehavior : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         zombieHitSound.Play();
         StartCoroutine(Flash(0.1f));
@@ -130,7 +130,7 @@ public class ZombieBehavior : MonoBehaviour
         }
     }
 
-    public void Die()
+    public virtual void Die()
     {
         isDead = true;
         GetComponent<DropBag>().DropItem(transform.position);
@@ -142,20 +142,20 @@ public class ZombieBehavior : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator Flash(float seconds)
+    protected IEnumerator Flash(float seconds)
     {
         spriteRenderer.color = Color.Lerp(originalColor, Color.red, 0.5f);
         yield return new WaitForSeconds(seconds);
         spriteRenderer.color = originalColor;
     }
 
-    public void setOnFire(){
+    public virtual void setOnFire(){
         if(!isOnFire){
             StartCoroutine(takeFireDamage(fireDuration));
         }
     }
 
-    IEnumerator takeFireDamage(float seconds){
+    protected IEnumerator takeFireDamage(float seconds){
         isOnFire = true;
         fireEffect.Play();
         float tickInterval = seconds / numFireTicks;

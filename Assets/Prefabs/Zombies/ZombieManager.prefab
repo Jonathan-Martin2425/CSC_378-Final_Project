@@ -62,3 +62,4 @@ MonoBehaviour:
   curRoundTime: 0
   numZombiesAlive: 0
   startDelay: 1
+  bossPrefab: {fileID: 2625531417755594487, guid: 686ddfb62bf61674faf141f70e51e780, type: 3}

@@ -5,6 +5,7 @@ public class DropBag : MonoBehaviour
 {
     public GameObject dropPrefab;
     public Drop[] dropList;
+    
     Drop GetDroppedItem()
     {
         List<Drop> possibleDrops = new List<Drop>();

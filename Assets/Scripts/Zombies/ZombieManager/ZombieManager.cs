@@ -8,7 +8,7 @@ public class ZombieManager : MonoBehaviour
 {
     [Header("Round Settings")]
     [SerializeField] List<ZombieRound> rounds;
-    [SerializeField] int curRound = 0;
+    public int curRound = 0;
 
     [Header("Spawn Settings")]
     [SerializeField] Vector2 innerBound = new Vector2(40f, 20f);
@@ -16,6 +16,9 @@ public class ZombieManager : MonoBehaviour
     public float curRoundTime = 0;
     public int numZombiesAlive = 0;
     public bool startDelay = true; //EOR stands for End of Round
+
+    public GameObject bossPrefab;
+
 
     static ZombieManager _instance;
 
@@ -68,6 +71,8 @@ public class ZombieManager : MonoBehaviour
         startDelay = false;
 
 
+
+
         //spawns all zombies in round
         ZombieRound round = rounds[curRound];
         for(int i = 0; i < round.zombiePrefabs.Count; i++){
@@ -76,6 +81,7 @@ public class ZombieManager : MonoBehaviour
                 Instantiate(round.zombiePrefabs[i], GetSpawnPosition(), transform.rotation);
             }
         }
+        Instantiate(bossPrefab, GetSpawnPosition(), transform.rotation);
 
         //set round timer before next wave spawns
         curRoundTime = rounds[curRound].roundTimer;

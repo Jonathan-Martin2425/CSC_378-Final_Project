@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7be9d980b4bc84abc3379113cb8e30, type: 3}
   m_Name: ShotgunAmmo
   m_EditorClassIdentifier: 
-  name: SniperAmmo
+  dropName: 
   relativeWeaponId: 2
   dropChance: 20
-  dropCount: 8
+  dropCount: 9
   sprite: {fileID: 8954096247844741236, guid: 4b1b29b16d45d33488a750cd39ed6543, type: 3}

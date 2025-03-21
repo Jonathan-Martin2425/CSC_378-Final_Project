@@ -15,5 +15,5 @@ MonoBehaviour:
   zombiePrefabs:
   - {fileID: 2625531417755594487, guid: 076267cecc151497d95ba2f3db6b4710, type: 3}
   zombieAmmounts: 0a000000
-  roundTimer: 60
+  roundTimer: 73.7
   startDelay: 10

@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 2625531417755594487, guid: e9e9cf46225b18c4d847d8c8b958ccd8, type: 3}
   - {fileID: 2625531417755594487, guid: 076267cecc151497d95ba2f3db6b4710, type: 3}
   zombieAmmounts: 0200000003000000
-  roundTimer: 25
+  roundTimer: 37.5
   startDelay: 5
