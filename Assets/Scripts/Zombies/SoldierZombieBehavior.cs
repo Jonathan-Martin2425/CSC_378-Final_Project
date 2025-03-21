@@ -34,6 +34,7 @@ public class SoldierZombieBehavior : MonoBehaviour
     private Color originalColor;
     private float damageTimer = 0f;
     public AudioSource zombieDeathSound;
+    public AudioSource zombieHitSound;
 
     void Start()
     {
@@ -106,6 +107,7 @@ public class SoldierZombieBehavior : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        zombieHitSound.Play();
         StartCoroutine(Flash(0.1f));
         health -= amount;
         if (health <= 0 && !isDead)

@@ -28,6 +28,7 @@ public class ZombieBehavior : MonoBehaviour
     bool isOnFire = false;
     bool isDead = false;
     public AudioSource zombieDeathSound;
+    public AudioSource zombieHitSound;
 
     void Start()
     {
@@ -119,6 +120,7 @@ public class ZombieBehavior : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        zombieHitSound.Play();
         StartCoroutine(Flash(0.1f));
         health -= amount;
         if (health <= 0 && !isDead)
