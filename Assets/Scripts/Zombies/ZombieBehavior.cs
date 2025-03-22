@@ -120,14 +120,15 @@ public class ZombieBehavior : MonoBehaviour
 
     public virtual void TakeDamage(float amount)
     {
-        zombieHitSound.Play();
         StartCoroutine(Flash(0.1f));
         health -= amount;
         if (health <= 0 && !isDead)
         {
             Instantiate(zombieDeathSound);
             Die();
+            return;
         }
+        zombieHitSound.Play();
     }
 
     public virtual void Die()

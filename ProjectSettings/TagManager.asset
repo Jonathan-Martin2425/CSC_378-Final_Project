@@ -9,7 +9,7 @@ TagManager:
   - UI
   - Background
   - Bullet
-  - Undefined
+  - Drop
   layers:
   - Default
   - TransparentFX
@@ -61,6 +61,9 @@ TagManager:
     locked: 0
   - name: Drops
     uniqueID: 3146037861
+    locked: 0
+  - name: ZombieBullet
+    uniqueID: 3709771671
     locked: 0
   - name: PlayerBullet
     uniqueID: 2192949357

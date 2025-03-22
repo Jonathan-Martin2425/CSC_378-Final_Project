@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5;
     public float movePosThreshold = 0.2f;
     public float enterDis = 1f;
-    private bool inTower = true;
+    public bool inTower = true;
     private Transform playerPos;
     private Rigidbody2D playerRb;
     private CircleCollider2D playerCollider;

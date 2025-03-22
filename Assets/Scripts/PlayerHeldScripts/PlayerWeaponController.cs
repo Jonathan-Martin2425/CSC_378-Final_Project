@@ -16,8 +16,7 @@ public class PlayerWeaponController : MonoBehaviour
     public Gun currentWeapon;
     public float swapTimer = 1f;
     [Header("Ammo Settings")]
-    public int maxPistolAmmo = 999;
-    public int maxRifleAmmo = 999;
+    public int maxAmmo = 999;
     public int reservedPistolAmmo = 15;
     public int reservedSniperAmmo = 5;
     public int reservedShotgunAmmo = 8;
@@ -158,8 +157,8 @@ public class PlayerWeaponController : MonoBehaviour
          if(id < reservedAmmo.Count)
          {
             reservedAmmo[id] += count;
-            if (reservedAmmo[id] > maxPistolAmmo)
-                reservedAmmo[id] = maxPistolAmmo;
+            if (reservedAmmo[id] > maxAmmo)
+                reservedAmmo[id] = maxAmmo;
         }
         else
         {

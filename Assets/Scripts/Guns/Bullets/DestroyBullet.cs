@@ -5,9 +5,8 @@ public class DestroyBullet : MonoBehaviour
     // This is set using the current weapon's bullet damage
     [SerializeField] protected float bulletDamage = 1f;
     [SerializeField] protected int level = 0;
-    [SerializeField] protected bool isTrigger = false;
     public int numPierce = 1;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     void Awake()
     {
@@ -28,7 +27,7 @@ public class DestroyBullet : MonoBehaviour
         Destroy(gameObject);        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Tower"))
         {

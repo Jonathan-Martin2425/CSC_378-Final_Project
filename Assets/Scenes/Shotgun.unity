@@ -146,11 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18c12d775282437fa7106eb4ee06bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &223845776 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8377221243136456761, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-  m_PrefabInstance: {fileID: 362076404}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &265862992 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 891958307478644662, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
@@ -188,14 +183,6 @@ PrefabInstance:
       propertyPath: maxMats
       value: 3000
       objectReference: {fileID: 0}
-    - target: {fileID: 11796609219908794, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11796609219908794, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 1698449754849176511, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: ammoIcon
       value: 
@@ -221,10 +208,6 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'weapons.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1635325606}
-    - target: {fileID: 1891223258268923589, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: 'weaponSlots.Array.data[0]'
       value: 
       objectReference: {fileID: 1730204553}
@@ -236,14 +219,6 @@ PrefabInstance:
       propertyPath: 'weaponSlots.Array.data[2]'
       value: 
       objectReference: {fileID: 4598692031794711281}
-    - target: {fileID: 2787365954691064896, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2787365954691064896, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3416523600730283456, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -284,14 +259,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3522316478883521896, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3522316478883521896, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3592422146471166718, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: ammoIcon
       value: 
@@ -308,45 +275,9 @@ PrefabInstance:
       propertyPath: 'costsPerLevel.Array.data[1]'
       value: 250
       objectReference: {fileID: 0}
-    - target: {fileID: 3592422146471166718, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: 'costsPerLevel.Array.data[2]'
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 3743866025408519260, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3743866025408519260, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 3824777238965424877, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081596918341878785, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4705395914329007101, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: ammoIcon
-      value: 
-      objectReference: {fileID: 935496546}
-    - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: fireSound
-      value: 
-      objectReference: {fileID: 992145208}
-    - target: {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: reloadSound
-      value: 
-      objectReference: {fileID: 223845776}
-    - target: {fileID: 5495951846281464811, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6210820162015045980, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
       propertyPath: tower
@@ -376,24 +307,7 @@ PrefabInstance:
       propertyPath: 'costsPerLevel.Array.data[2]'
       value: 300
       objectReference: {fileID: 0}
-    - target: {fileID: 7664963717427519860, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1275589539659018210, guid: 77d6739ce932ab54196bee9ad1f75c93, type: 3}
-    - target: {fileID: 7664963717427519860, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664963717427519860, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7664963717427519860, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5321069969871227170, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -652,11 +566,6 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5486414304438008499, guid: 00548c3717042b040a8bb7dfa7be9214, type: 3}
   m_PrefabInstance: {fileID: 1264333377}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &992145208 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1969544084439262418, guid: 1fa73da14f5f41e40af8a36bfc02a217, type: 3}
-  m_PrefabInstance: {fileID: 362076404}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &1048132617 stripped
 AudioSource:
@@ -1192,6 +1101,10 @@ PrefabInstance:
       propertyPath: mats
       value: 
       objectReference: {fileID: 105500511}
+    - target: {fileID: 8196836511509466566, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 373648581}
     - target: {fileID: 8196836511509466566, guid: f04aa8ba57ee52c4c8578a8e8fbb848c, type: 3}
       propertyPath: scoreTMP
       value: 

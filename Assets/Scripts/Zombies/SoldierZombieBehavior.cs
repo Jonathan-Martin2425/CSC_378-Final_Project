@@ -5,8 +5,10 @@ public class SoldierZombieBehavior : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform target;       // Tower's transform.
-    private TowerHealth towerHealth;                   // Reference to the TowerHealth script.
+    private TowerHealth towerHealth;                 // Reference to the TowerHealth script.
     ZombieManager manager; // used to decrement totalZombie counter when it dies
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform firePoint;
 
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 1f;
@@ -15,7 +17,8 @@ public class SoldierZombieBehavior : MonoBehaviour
 
     [Header("Attack Settings")]
     [SerializeField] private float fireRate = 1f;       // How often (in seconds) the zombie attacks.
-    [SerializeField] private float directDamage = 5f;   // Damage dealt to the tower per attack.
+    [SerializeField] private float bulletDamage = 5f;
+    [SerializeField] private float bulletSpeed = 3f;   // Speed of bullet shoot
 
     [Header("Health/Scoring")]
     [SerializeField] private float health = 3f;
@@ -75,7 +78,7 @@ public class SoldierZombieBehavior : MonoBehaviour
         else
         {
             rb.linearVelocity = Vector2.zero; // Stop moving.
-            DirectDamageTower();
+            Shoot();
         }
     }
 
@@ -92,15 +95,25 @@ public class SoldierZombieBehavior : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    void DirectDamageTower()
+    void Shoot()
     {
         damageTimer += Time.fixedDeltaTime;
         if (damageTimer >= fireRate)
         {
             damageTimer = 0f;
-            if (towerHealth != null)
+
+            // shoots bullet
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            Vector3 direction = target.position - transform.position;
+            direction.Normalize();
+            
+            bullet.GetComponent<DestroyBullet>().SetDamage(bulletDamage);
+
+            if (rb != null)
             {
-                towerHealth.TakeDamage(directDamage);
+                //fireSound.Play();
+                rb.linearVelocity = direction * bulletSpeed;
             }
         }
     }

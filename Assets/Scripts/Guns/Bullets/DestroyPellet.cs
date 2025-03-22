@@ -4,7 +4,7 @@ public class DestroyPellet : DestroyBullet
 {
     public float knockback = 1f;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Zombie"))
         {
