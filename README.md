@@ -1,5 +1,5 @@
 # One-Man-Tower
-  This game was made in Unity version 6000.0.36f1 and this repository holds all files necessary to edit or look through the code of our game.
+  This game was made in Unity version 6000.0.36f1 with vscode as our IDE. This repository holds all files necessary to edit or look through the code of our game in the Unity Editor.
 
 ## Game Description
 It’s been 28 days since the zombie apocalypse began due to radioactive waste contaminating people’s food. Backed into a corner, you are one man who has to defend his tower against the oncoming horde. Choose from a variety of weapons, pick up ammo and resources, and return these undead back to their grave.
