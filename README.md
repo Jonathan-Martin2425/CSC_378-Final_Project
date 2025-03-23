@@ -4,6 +4,8 @@
 ## Game Description
 It’s been 28 days since the zombie apocalypse began due to radioactive waste contaminating people’s food. Backed into a corner, you are one man who has to defend his tower against the oncoming horde. Choose from a variety of weapons, pick up ammo and resources, and return these undead back to their grave.
 
+[Trailer](https://www.youtube.com/watch?v=LC5Iar3vFvw&feature=youtu.be)
+
 ### Controls: 
 
 - Number keys (1, 2 and 3) to swap weapons
